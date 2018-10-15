@@ -18,8 +18,8 @@ This software is free, open source and [MIT Licenced](https://github.com/Jean-Lo
 
 **HighC** is inspired by the designation for the C6 (1,046.502 Hz) musical note. It is also inspired by the nomenclature of C++ and C# except where those languages are designated as C successors, this library is still C, but at a higher frequency.
 
-##2. Examples
+## 2. Examples
 
-
+![](Images/PrintingFile.png)
 
 
