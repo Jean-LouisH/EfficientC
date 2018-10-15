@@ -18,21 +18,30 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Strings.c">
+    <ClCompile Include="test.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="test.c">
+    <ClCompile Include="HighC\File.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HighC\Strings.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Strings.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Binary.h">
+    <ClInclude Include="HighC\File.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HighC\Memory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HighC\Strings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HighC\HighC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
