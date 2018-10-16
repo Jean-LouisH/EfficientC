@@ -6,11 +6,11 @@ typedef struct
 	char* data;
 	int length;
 	int capacity;
-}HighC_String;
+}hcString;
 
-HighC_String newString(const char* initialString);
-void appendString(HighC_String* string, char symbol);
-void clearString(HighC_String* string);
-void freeString(HighC_String* string);
+hcString hcNewString(const char* initialString);
+void hcAppendString(hcString* string, char symbol);
+void hcClearString(hcString* string);
+void hcFreeString(hcString* string);
 
 #endif /*String_h*/

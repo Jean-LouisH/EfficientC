@@ -2,20 +2,20 @@
 #include <string.h>
 #include <stdlib.h>
 
-HighC_String newString(const char* initialString)
+hcString hcNewString(const char* initialString)
 {
-	HighC_String string;
+	hcString string;
 	string.length = strlen(initialString);
 	if (string.length < 1)
 		string.capacity = 1;
 	else
-		string.capacity = string.length;
+		string.capacity = string.length + 1;
 	string.data = calloc(string.capacity, sizeof(char));
 	strcpy(string.data, initialString);
 	return string;
 }
 
-void appendString(HighC_String* string, char symbol)
+void hcAppendString(hcString* string, char symbol)
 {
 	if (string->length >= string->capacity)
 	{
@@ -34,15 +34,15 @@ void appendString(HighC_String* string, char symbol)
 	}
 }
 
-void clearString(HighC_String* string)
+void hcClearString(hcString* string)
 {
 	string->data[0] = 0;
 	string->length = 0;
 }
 
-void freeString(HighC_String* string)
+void hcFreeString(hcString* string)
 {
-	clearString(string);
+	hcClearString(string);
 	free(string->data);
 	string->capacity = 0;
 }
