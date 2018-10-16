@@ -19,12 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="HighC\Console.c" />
     <ClCompile Include="HighC\File.c" />
+    <ClCompile Include="HighC\Memory.c" />
     <ClCompile Include="HighC\Strings.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="test.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="HighC\Console.h" />
     <ClInclude Include="HighC\File.h" />
     <ClInclude Include="HighC\HighC.h" />
     <ClInclude Include="HighC\Memory.h" />
