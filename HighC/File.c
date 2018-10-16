@@ -2,40 +2,83 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-bool fileExists(const char* filename)
+bool hcFileExists(const char* filepath)
 {
-	FILE* readFile = fopen(filename, "rb");
+	FILE* readFile = fopen(filepath, "rb");
 	if (readFile != NULL)
 		fclose(readFile);
 	return (bool)readFile;
 }
 
-HighC_Memory_u8 readASCIIStringFromFile(const char* filename)
+hcString hcExtractFileName(const char* filepath)
 {
-	FILE* readFile = fopen(filename, "rb");
-	HighC_Memory_u8 string;
-	string.data = NULL;
-	string.size = 0;
+	hcString fileName = hcNewString("");
+	int nameIndexStart = 0;
+	int filepathLength = 0;
+
+	while (filepath[filepathLength] != NULL)
+		filepathLength++;
+
+	nameIndexStart = filepathLength - 1;
+	while (filepath[nameIndexStart] != '/' && filepath[nameIndexStart] != '\\')
+		nameIndexStart--;
+
+	for (int i = nameIndexStart + 1; filepath[i] != '.'; i++)
+		hcAppendString(&fileName, filepath[i]);
+
+	return fileName;
+}
+
+hcString hcExtractFileExtension(const char* filepath)
+{
+	hcString fileExtension = hcNewString("");
+	int nameIndexStart = 0;
+	int filepathLength = 0;
+
+	while (filepath[filepathLength] != NULL)
+		filepathLength++;
+
+	nameIndexStart = filepathLength - 1;
+	while (filepath[nameIndexStart] != '.')
+		nameIndexStart--;
+
+	for (int i = nameIndexStart + 1; filepath[i] != NULL; i++)
+		hcAppendString(&fileExtension, filepath[i]);
+
+	return fileExtension;
+}
+
+hcString hcReadASCIIStringFromFile(const char* filepath)
+{
+	FILE* readFile = fopen(filepath, "rb");
+	hcMemoryU8 memory;
+	hcString string;
+
+	memory.data = NULL;
+	memory.size = 0;
+
 	if (readFile != NULL)
 	{
 		fseek(readFile, 0, SEEK_END);
-		string.size = ftell(readFile);
+		memory.size = ftell(readFile);
 		rewind(readFile);
-		string.data = malloc(sizeof(uint8_t) * (string.size + 1));
-		if (string.data != NULL)
+		memory.data = malloc(sizeof(uint8_t) * (memory.size + 1));
+		if (memory.data != NULL)
 		{
-			fread(string.data, sizeof(uint8_t), string.size, readFile);
-			string.data[string.size] = NULL;
+			fread(memory.data, sizeof(uint8_t), memory.size, readFile);
+			memory.data[memory.size] = NULL;
+			string = hcConvertMemoryU8ToString(memory);
+			hcFreeMemoryU8(&memory);
 		}
 		fclose(readFile);
 	}
 	return string;
 }
 
-HighC_Memory_u8 readBinaryU8FromFile(const char* filename)
+hcMemoryU8 hcReadBinaryU8FromFile(const char* filepath)
 {
-	FILE* readFile = fopen(filename, "rb");
-	HighC_Memory_u8 binary;
+	FILE* readFile = fopen(filepath, "rb");
+	hcMemoryU8 binary;
 	binary.data = NULL;
 	binary.size = 0;
 	if (readFile != NULL)
@@ -51,10 +94,10 @@ HighC_Memory_u8 readBinaryU8FromFile(const char* filename)
 	return binary;
 }
 
-HighC_Memory_u16 readBinaryU16FromFile(const char* filename)
+hcMemoryU16 hcReadBinaryU16FromFile(const char* filepath)
 {
-	FILE* readFile = fopen(filename, "rb");
-	HighC_Memory_u16 binary;
+	FILE* readFile = fopen(filepath, "rb");
+	hcMemoryU16 binary;
 	binary.data = NULL;
 	binary.size = 0;
 	if (readFile != NULL)
@@ -70,10 +113,10 @@ HighC_Memory_u16 readBinaryU16FromFile(const char* filename)
 	return binary;
 }
 
-HighC_Memory_u32 readBinaryU32FromFile(const char* filename)
+hcMemoryU32 hcReadBinaryU32FromFile(const char* filepath)
 {
-	FILE* readFile = fopen(filename, "rb");
-	HighC_Memory_u32 binary;
+	FILE* readFile = fopen(filepath, "rb");
+	hcMemoryU32 binary;
 	binary.data = NULL;
 	binary.size = 0;
 	if (readFile != NULL)
@@ -89,10 +132,10 @@ HighC_Memory_u32 readBinaryU32FromFile(const char* filename)
 	return binary;
 }
 
-HighC_Memory_u64 readBinaryU64FromFile(const char* filename)
+hcMemoryU64 hcReadBinaryU64FromFile(const char* filepath)
 {
-	FILE* readFile = fopen(filename, "rb");
-	HighC_Memory_u64 binary;
+	FILE* readFile = fopen(filepath, "rb");
+	hcMemoryU64 binary;
 	binary.data = NULL;
 	binary.size = 0;
 	if (readFile != NULL)
@@ -108,45 +151,45 @@ HighC_Memory_u64 readBinaryU64FromFile(const char* filename)
 	return binary;
 }
 
-HighC_Memory_s8 readBinaryS8FromFile(const char* filename)
+hcMemoryS8 hcReadBinaryS8FromFile(const char* filepath)
 {
-	HighC_Memory_s8 binary;
-	HighC_Memory_u8 temp = readBinaryU8FromFile(filename);
+	hcMemoryS8 binary;
+	hcMemoryU8 temp = hcReadBinaryU8FromFile(filepath);
 	binary.data = temp.data;
 	binary.size = temp.size;
 	return binary;
 }
 
-HighC_Memory_s16 readBinaryS16FromFile(const char* filename)
+hcMemoryS16 hcReadBinaryS16FromFile(const char* filepath)
 {
-	HighC_Memory_s16 binary;
-	HighC_Memory_u16 temp = readBinaryU16FromFile(filename);
+	hcMemoryS16 binary;
+	hcMemoryU16 temp = hcReadBinaryU16FromFile(filepath);
 	binary.data = temp.data;
 	binary.size = temp.size;
 	return binary;
 }
 
-HighC_Memory_s32 readBinaryS32FromFile(const char* filename)
+hcMemoryS32 hcReadBinaryS32FromFile(const char* filepath)
 {
-	HighC_Memory_s32 binary;
-	HighC_Memory_u32 temp = readBinaryU32FromFile(filename);
+	hcMemoryS32 binary;
+	hcMemoryU32 temp = hcReadBinaryU32FromFile(filepath);
 	binary.data = temp.data;
 	binary.size = temp.size;
 	return binary;
 }
 
-HighC_Memory_s64 readBinaryS64FromFile(const char* filename)
+hcMemoryS64 hcReadBinaryS64FromFile(const char* filepath)
 {
-	HighC_Memory_s64 binary;
-	HighC_Memory_u64 temp = readBinaryU64FromFile(filename);
+	hcMemoryS64 binary;
+	hcMemoryU64 temp = hcReadBinaryU64FromFile(filepath);
 	binary.data = temp.data;
 	binary.size = temp.size;
 	return binary;
 }
 
-void writeBinaryU8ToFile(HighC_Memory_u8* binary, const char* filename)
+void hcWriteBinaryU8ToFile(hcMemoryU8* binary, const char* filepath)
 {
-	FILE* writeFile = fopen(filename, "wb");
+	FILE* writeFile = fopen(filepath, "wb");
 	if (writeFile != NULL)
 	{
 		fwrite(binary->data, sizeof(uint8_t), binary->size, writeFile);
@@ -154,9 +197,9 @@ void writeBinaryU8ToFile(HighC_Memory_u8* binary, const char* filename)
 	}
 }
 
-void writeBinaryU16ToFile(HighC_Memory_u16* binary, const char* filename)
+void hcWriteBinaryU16ToFile(hcMemoryU16* binary, const char* filepath)
 {
-	FILE* writeFile = fopen(filename, "wb");
+	FILE* writeFile = fopen(filepath, "wb");
 	if (writeFile != NULL)
 	{
 		fwrite(binary->data, sizeof(uint16_t), binary->size, writeFile);
@@ -164,9 +207,9 @@ void writeBinaryU16ToFile(HighC_Memory_u16* binary, const char* filename)
 	}
 }
 
-void writeBinaryU32ToFile(HighC_Memory_u32* binary, const char* filename)
+void hcWriteBinaryU32ToFile(hcMemoryU32* binary, const char* filepath)
 {
-	FILE* writeFile = fopen(filename, "wb");
+	FILE* writeFile = fopen(filepath, "wb");
 	if (writeFile != NULL)
 	{
 		fwrite(binary->data, sizeof(uint32_t), binary->size, writeFile);
@@ -174,9 +217,9 @@ void writeBinaryU32ToFile(HighC_Memory_u32* binary, const char* filename)
 	}
 }
 
-void writeBinaryU64ToFile(HighC_Memory_u64* binary, const char* filename)
+void hcWriteBinaryU64ToFile(hcMemoryU64* binary, const char* filepath)
 {
-	FILE* writeFile = fopen(filename, "wb");
+	FILE* writeFile = fopen(filepath, "wb");
 	if (writeFile != NULL)
 	{
 		fwrite(binary->data, sizeof(uint64_t), binary->size, writeFile);
@@ -184,41 +227,41 @@ void writeBinaryU64ToFile(HighC_Memory_u64* binary, const char* filename)
 	}
 }
 
-void writeBinaryS8ToFile(HighC_Memory_s8* binary, const char* filename)
+void hcWriteBinaryS8ToFile(hcMemoryS8* binary, const char* filepath)
 {
-	HighC_Memory_u8 temp;
+	hcMemoryU8 temp;
 	temp.data = binary->data;
 	temp.size = binary->size;
-	writeBinaryU8ToFile(&temp, filename);
+	hcWriteBinaryU8ToFile(&temp, filepath);
 }
 
-void writeBinaryS16ToFile(HighC_Memory_s16* binary, const char* filename)
+void hcWriteBinaryS16ToFile(hcMemoryS16* binary, const char* filepath)
 {
-	HighC_Memory_u16 temp;
+	hcMemoryU16 temp;
 	temp.data = binary->data;
 	temp.size = binary->size;
-	writeBinaryU16ToFile(&temp, filename);
+	hcWriteBinaryU16ToFile(&temp, filepath);
 }
 
-void writeBinaryS32ToFile(HighC_Memory_s32* binary, const char* filename)
+void hcWriteBinaryS32ToFile(hcMemoryS32* binary, const char* filepath)
 {
-	HighC_Memory_u32 temp;
+	hcMemoryU32 temp;
 	temp.data = binary->data;
 	temp.size = binary->size;
-	writeBinaryU32ToFile(&temp, filename);
+	hcWriteBinaryU32ToFile(&temp, filepath);
 }
 
-void writeBinaryS64ToFile(HighC_Memory_s64* binary, const char* filename)
+void hcWriteBinaryS64ToFile(hcMemoryS64* binary, const char* filepath)
 {
-	HighC_Memory_u64 temp;
+	hcMemoryU64 temp;
 	temp.data = binary->data;
 	temp.size = binary->size;
-	writeBinaryU64ToFile(&temp, filename);
+	hcWriteBinaryU64ToFile(&temp, filepath);
 }
 
-void appendBinaryU8ToFile(HighC_Memory_u8* binary, const char* filename)
+void hcAppendBinaryU8ToFile(hcMemoryU8* binary, const char* filepath)
 {
-	FILE* appendFile = fopen(filename, "ab");
+	FILE* appendFile = fopen(filepath, "ab");
 	if (appendFile != NULL)
 	{
 		fwrite(binary->data, sizeof(uint8_t), binary->size, appendFile);
@@ -226,9 +269,9 @@ void appendBinaryU8ToFile(HighC_Memory_u8* binary, const char* filename)
 	}
 }
 
-void appendBinaryU16ToFile(HighC_Memory_u16* binary, const char* filename)
+void hcAppendBinaryU16ToFile(hcMemoryU16* binary, const char* filepath)
 {
-	FILE* appendFile = fopen(filename, "ab");
+	FILE* appendFile = fopen(filepath, "ab");
 	if (appendFile != NULL)
 	{
 		fwrite(binary->data, sizeof(uint16_t), binary->size, appendFile);
@@ -236,9 +279,9 @@ void appendBinaryU16ToFile(HighC_Memory_u16* binary, const char* filename)
 	}
 }
 
-void appendBinaryU32ToFile(HighC_Memory_u32* binary, const char* filename)
+void hcAppendBinaryU32ToFile(hcMemoryU32* binary, const char* filepath)
 {
-	FILE* appendFile = fopen(filename, "ab");
+	FILE* appendFile = fopen(filepath, "ab");
 	if (appendFile != NULL)
 	{
 		fwrite(binary->data, sizeof(uint32_t), binary->size, appendFile);
@@ -246,9 +289,9 @@ void appendBinaryU32ToFile(HighC_Memory_u32* binary, const char* filename)
 	}
 }
 
-void appendBinaryU64ToFile(HighC_Memory_u64* binary, const char* filename)
+void hcAppendBinaryU64ToFile(hcMemoryU64* binary, const char* filepath)
 {
-	FILE* appendFile = fopen(filename, "ab");
+	FILE* appendFile = fopen(filepath, "ab");
 	if (appendFile != NULL)
 	{
 		fwrite(binary->data, sizeof(uint64_t), binary->size, appendFile);
@@ -256,34 +299,34 @@ void appendBinaryU64ToFile(HighC_Memory_u64* binary, const char* filename)
 	}
 }
 
-void appendBinaryS8ToFile(HighC_Memory_s8* binary, const char* filename)
+void hcAppendBinaryS8ToFile(hcMemoryS8* binary, const char* filepath)
 {
-	HighC_Memory_u8 temp;
+	hcMemoryU8 temp;
 	temp.data = binary->data;
 	temp.size = binary->size;
-	appendBinaryU8ToFile(&temp, filename);
+	hcAppendBinaryU8ToFile(&temp, filepath);
 }
 
-void appendBinaryS16ToFile(HighC_Memory_s16* binary, const char* filename)
+void hcAppendBinaryS16ToFile(hcMemoryS16* binary, const char* filepath)
 {
-	HighC_Memory_u16 temp;
+	hcMemoryU16 temp;
 	temp.data = binary->data;
 	temp.size = binary->size;
-	appendBinaryU16ToFile(&temp, filename);
+	hcAppendBinaryU16ToFile(&temp, filepath);
 }
 
-void appendBinaryS32ToFile(HighC_Memory_s32* binary, const char* filename)
+void hcAppendBinaryS32ToFile(hcMemoryS32* binary, const char* filepath)
 {
-	HighC_Memory_u32 temp;
+	hcMemoryU32 temp;
 	temp.data = binary->data;
 	temp.size = binary->size;
-	appendBinaryU32ToFile(&temp, filename);
+	hcAppendBinaryU32ToFile(&temp, filepath);
 }
 
-void appendBinaryS64ToFile(HighC_Memory_s64* binary, const char* filename)
+void hcAppendBinaryS64ToFile(hcMemoryS64* binary, const char* filepath)
 {
-	HighC_Memory_u64 temp;
+	hcMemoryU64 temp;
 	temp.data = binary->data;
 	temp.size = binary->size;
-	appendBinaryU64ToFile(&temp, filename);
+	hcAppendBinaryU64ToFile(&temp, filepath);
 }
