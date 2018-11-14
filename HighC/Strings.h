@@ -1,11 +1,13 @@
 #ifndef String_h
 #define String_h
 
+#include <stdint.h>
+
 typedef struct
 {
 	char* data;
-	int length;
-	int capacity;
+	uint32_t length;
+	uint32_t capacity;
 }hcString;
 
 hcString hcNewString(const char* initialString);

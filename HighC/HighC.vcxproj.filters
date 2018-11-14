@@ -15,42 +15,33 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c">
+    <ClCompile Include="Console.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="test.c">
+    <ClCompile Include="File.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HighC\File.c">
+    <ClCompile Include="Memory.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HighC\Strings.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HighC\Memory.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HighC\Console.c">
+    <ClCompile Include="Strings.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="test.h">
+    <ClInclude Include="Console.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HighC\File.h">
+    <ClInclude Include="File.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HighC\Memory.h">
+    <ClInclude Include="HighC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HighC\Strings.h">
+    <ClInclude Include="Memory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HighC\HighC.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HighC\Console.h">
+    <ClInclude Include="Strings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
