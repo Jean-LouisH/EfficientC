@@ -3,5 +3,6 @@
 int main(int argc, char* argv[])
 {
 	testPrintMainToConsole();
+	testFileOperations();
 	return 0;
 }
