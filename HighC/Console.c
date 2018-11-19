@@ -8,3 +8,9 @@ void hcPrintFileToConsole(const char* filename)
 	printf(text.data);
 	hcFreeString(&text);
 }
+
+void hcConsolePause()
+{
+	printf("\n\nPress any key to continue.");
+	getchar();
+}
