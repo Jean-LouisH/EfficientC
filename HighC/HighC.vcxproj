@@ -18,6 +18,19 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Console.h" />
+    <ClInclude Include="include\File.h" />
+    <ClInclude Include="include\HighC.h" />
+    <ClInclude Include="include\Memory.h" />
+    <ClInclude Include="include\Strings.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Console.c" />
+    <ClCompile Include="src\File.c" />
+    <ClCompile Include="src\Memory.c" />
+    <ClCompile Include="src\Strings.c" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{52A140A9-2B24-4965-8F14-AFDBD87E497A}</ProjectGuid>
@@ -77,6 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\louis_000\Source\Repos\HighC\HighC\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -115,19 +129,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Console.c" />
-    <ClCompile Include="File.c" />
-    <ClCompile Include="Memory.c" />
-    <ClCompile Include="Strings.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Console.h" />
-    <ClInclude Include="File.h" />
-    <ClInclude Include="HighC.h" />
-    <ClInclude Include="Memory.h" />
-    <ClInclude Include="Strings.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

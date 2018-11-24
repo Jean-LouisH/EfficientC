@@ -1,4 +1,4 @@
-#include "Memory.h"
+#include <Memory.h>
 #include <stdlib.h>
 
 hcString hcConvertMemoryU8ToString(hcMemoryU8 memory)
