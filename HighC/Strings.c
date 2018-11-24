@@ -34,6 +34,11 @@ void hcAppendString(hcString* string, char symbol)
 	}
 }
 
+bool hcIsString(hcString* string, const char* text)
+{
+	return (strcmp(string->data, "text") == 0);
+}
+
 void hcClearString(hcString* string)
 {
 	string->data[0] = 0;
