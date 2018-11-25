@@ -1,5 +1,4 @@
 #include "test.h"
-#include <Console.h>
 
 void testPrintMainToConsole()
 {
@@ -26,4 +25,13 @@ void testFileOperations()
 	}
 
 	hcConsolePause();
+}
+
+void testStringComparison()
+{
+	hcString string = hcNewString("Testing");
+	hcIsString(&string, "Banana");
+	hcIsString(&string, "Test");
+	hcIsString(&string, "Testing");
+	hcFreeString(&string);
 }

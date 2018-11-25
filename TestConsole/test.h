@@ -2,3 +2,4 @@
 
 void testPrintMainToConsole();
 void testFileOperations();
+void testStringComparison();
