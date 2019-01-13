@@ -1,5 +1,7 @@
 #include "test.h"
 
+#if (COMPILER_SWITCH == C)
+
 void testPrintMainToConsole()
 {
 	printf("\n\tTesting Printing Main to Console...\n");
@@ -41,3 +43,5 @@ void testStringComparison()
 
 	hcConsolePause();
 }
+
+#endif
