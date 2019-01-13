@@ -21,17 +21,17 @@
   <ItemGroup>
     <ClInclude Include="include\Console.h" />
     <ClInclude Include="include\Converters.h" />
+    <ClInclude Include="include\Data\Memory.h" />
+    <ClInclude Include="include\Data\Strings.h" />
     <ClInclude Include="include\File.h" />
     <ClInclude Include="include\HighC.h" />
-    <ClInclude Include="include\Memory.h" />
-    <ClInclude Include="include\Strings.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Console.c" />
     <ClCompile Include="src\Converters.c" />
+    <ClCompile Include="src\Data\Memory.c" />
+    <ClCompile Include="src\Data\Strings.c" />
     <ClCompile Include="src\File.c" />
-    <ClCompile Include="src\Memory.c" />
-    <ClCompile Include="src\Strings.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

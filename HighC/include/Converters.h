@@ -2,8 +2,8 @@
 #define Converters_h
 
 #include <stdint.h>
-#include <Memory.h>
-#include <Strings.h>
+#include "Data/Memory.h""
+#include "Data/Strings.h"
 
 hcString hcConvertMemoryU8ToString(hcMemoryU8 memory);
 hcString hcConvertMemoryS8ToString(hcMemoryS8 memory);

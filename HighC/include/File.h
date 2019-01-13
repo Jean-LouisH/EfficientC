@@ -2,8 +2,8 @@
 #define File_h
 
 #include <stdbool.h>
-#include <Memory.h>
-#include <Strings.h>
+#include "Data/Memory.h"
+#include "Data/Strings.h"
 
 bool hcFileExists(const char* filepath);
 hcString hcExtractFileName(const char* filepath);
