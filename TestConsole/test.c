@@ -2,6 +2,7 @@
 
 void testPrintMainToConsole()
 {
+	printf("\n\tTesting Printing Main to Console...\n");
 	hcPrintFileToConsole("main.c");
 	hcConsolePause();
 }
@@ -14,6 +15,8 @@ void testFileOperations()
 	hcMemoryU8 binaryU8;
 
 	const char* fileTest = "FileTest.txt";
+
+	printf("\n\tTesting File Operations...");
 
 	if (hcFileExists(fileTest))
 	{
@@ -29,9 +32,12 @@ void testFileOperations()
 
 void testStringComparison()
 {
+	printf("\n\tTesting String Comparison...");
 	hcString string = hcNewString("Testing");
 	hcIsString(&string, "Banana");
 	hcIsString(&string, "Test");
 	hcIsString(&string, "Testing");
 	hcFreeString(&string);
+
+	hcConsolePause();
 }
