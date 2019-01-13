@@ -30,6 +30,9 @@
     <ClInclude Include="include\Strings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Converters.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Console.c">
@@ -42,6 +45,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Strings.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Converters.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,16 +1,6 @@
 #include <Memory.h>
 #include <stdlib.h>
 
-hcString hcConvertMemoryU8ToString(hcMemoryU8 memory)
-{
-	return hcNewString(memory.data);
-}
-
-hcString hcConvertMemoryS8ToString(hcMemoryS8 memory)
-{
-	return hcNewString(memory.data);
-}
-
 void hcFreeMemoryU8(hcMemoryU8* memory)
 {
 	free(memory->data);

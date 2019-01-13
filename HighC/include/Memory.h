@@ -2,7 +2,6 @@
 #define Memory_h
 
 #include <stdint.h>
-#include <Strings.h>
 
 //Unsigned
 //////////////////////////////////
@@ -57,9 +56,6 @@ typedef struct
 	int64_t* data;
 	uint64_t size;
 }hcMemoryS64;
-
-hcString hcConvertMemoryU8ToString(hcMemoryU8 memory);
-hcString hcConvertMemoryS8ToString(hcMemoryS8 memory);
 
 void hcFreeMemoryU8(hcMemoryU8* memory);
 void hcFreeMemoryU16(hcMemoryU16* memory);
