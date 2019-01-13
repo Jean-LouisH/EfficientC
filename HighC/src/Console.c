@@ -1,6 +1,6 @@
 #include "../include/Console.h"
 #include "../include/File.h"
-#include "../include/Data/Memory.h"
+#include "../include/DataStructures/Memory.h"
 
 void hcPrintFileToConsole(const char* filename) 
 {

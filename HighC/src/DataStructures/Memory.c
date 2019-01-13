@@ -1,4 +1,4 @@
-#include "../include/Data/Memory.h"
+#include "../include/DataStructures/Memory.h"
 #include <stdlib.h>
 
 void hcFreeMemoryU8(hcMemoryU8* memory)

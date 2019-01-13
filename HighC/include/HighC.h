@@ -3,7 +3,17 @@
 
 #include "Console.h""
 #include "File.h"
-#include "Data/Memory.h"
-#include "Data/Strings.h"
+#include "DataStructures/Memory.h"
+#include "DataStructures/Strings.h"
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /*HighC_h*/

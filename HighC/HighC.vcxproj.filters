@@ -27,10 +27,10 @@
     <ClInclude Include="include\Converters.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Data\Memory.h">
+    <ClInclude Include="include\DataStructures\Memory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Data\Strings.h">
+    <ClInclude Include="include\DataStructures\Strings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -44,10 +44,10 @@
     <ClCompile Include="src\Converters.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Data\Memory.c">
+    <ClCompile Include="src\DataStructures\Memory.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Data\Strings.c">
+    <ClCompile Include="src\DataStructures\Strings.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

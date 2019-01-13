@@ -1,4 +1,4 @@
-#include "../include/Data/Strings.h"
+#include "../include/DataStructures/Strings.h"
 #include <string.h>
 #include <stdlib.h>
 
