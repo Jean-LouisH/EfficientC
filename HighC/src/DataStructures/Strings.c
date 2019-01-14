@@ -13,7 +13,7 @@ hcString hcNewString(const char* initialString)
 	return string;
 }
 
-void hcAppendString(hcString* string, char symbol)
+void hcAppendCharToString(hcString* string, const char character)
 {
 	if (string->data != 0)
 	{
@@ -28,14 +28,66 @@ void hcAppendString(hcString* string, char symbol)
 		/*in case allocation fails, check again.*/
 		if (string->length < string->capacity)
 		{
-			string->data[string->length] = symbol;
+			string->data[string->length] = character;
 			string->data[string->length + 1] = 0;
 			string->length++;
 		}
 	}
 }
 
-bool hcIsString(hcString* string, const char* text)
+void hcAppendStringToString(hcString* firstString, hcString secondString)
+{
+
+}
+
+void hcAssignCharToString(hcString* string, const char character)
+{
+
+}
+
+void hcAssignStringToString(hcString* stringCopy, hcString* stringOriginal)
+{
+
+}
+
+void hcInsertCharIntoString(hcString* stringTarget, const char character, uint32_t index)
+{
+
+}
+
+void hcInsertStringIntoString(hcString* stringTarget, const char subString, uint32_t index)
+{
+
+}
+
+void hcEraseFromString(hcString* string, uint32_t first, uint32_t last)
+{
+
+}
+
+void hcReplaceToString(hcString* stringTarget, uint32_t first, uint32_t last, hcString* subString)
+{
+
+}
+
+void hcSwapStrings(hcString* firstString, hcString* secondString)
+{
+
+}
+
+char hcPopBackString(hcString* string)
+{
+	char character = NULL;
+	return character;
+}
+
+hcString hcGetSubString(hcString* string, uint32_t index)
+{
+	hcString subString = hcNewString("");
+	return subString;
+}
+
+bool hcIsStringAndCharArrayTheSame(hcString* string, const char* text)
 {
 	bool isSame = false;
 
@@ -45,6 +97,21 @@ bool hcIsString(hcString* string, const char* text)
 	}
 
 	return isSame;
+}
+
+bool hcisStringEmpty(hcString* string)
+{
+
+}
+
+void hcReserveString(hcString* string, uint32_t newCapacity)
+{
+
+}
+
+void hcShrinkStringToFit(hcString* string)
+{
+
 }
 
 void hcClearString(hcString* string)
