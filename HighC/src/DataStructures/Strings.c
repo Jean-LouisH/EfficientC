@@ -8,14 +8,14 @@ hcString hcNewString(const char* initialString)
 	string.length = strlen(initialString);
 	string.capacity = string.length + 1;
 	string.data = calloc(string.capacity, sizeof(char));
-	if (string.data != 0)
+	if (string.data != NULL)
 		strcpy(string.data, initialString);
 	return string;
 }
 
 void hcAppendCharToString(hcString* string, char character)
 {
-	if (string->data != 0)
+	if (string->data != NULL)
 	{
 		if (string->length >= string->capacity)
 		{
@@ -42,7 +42,11 @@ void hcAppendStringToString(hcString* firstString, hcString secondString)
 
 void hcAssignCharToString(hcString* string, char character)
 {
-
+	if (string->data != NULL)
+	{
+		hcClearString(string);
+		hcAppendCharToString(string, character);
+	}
 }
 
 void hcAssignStringToString(hcString* stringCopy, hcString* stringOriginal)
@@ -50,29 +54,36 @@ void hcAssignStringToString(hcString* stringCopy, hcString* stringOriginal)
 
 }
 
-void hcInsertCharIntoString(hcString* stringTarget, char character, uint32_t index)
+void hcInsertCharIntoString(hcString* stringTarget, char character, uint64_t index)
 {
 
 }
 
-void hcInsertStringIntoString(hcString* stringTarget, char subString, uint32_t index)
+void hcInsertStringIntoString(hcString* stringTarget, char subString, uint64_t index)
 {
 
 }
 
-void hcEraseFromString(hcString* string, uint32_t first, uint32_t last)
+void hcEraseFromString(hcString* string, uint64_t first, uint64_t last)
 {
 
 }
 
-void hcReplaceToString(hcString* stringTarget, uint32_t first, uint32_t last, hcString* subString)
+void hcReplaceToString(hcString* stringTarget, uint64_t first, uint64_t last, hcString* subString)
 {
 
 }
 
 void hcSwapStrings(hcString* firstString, hcString* secondString)
 {
+	if (firstString->data != NULL && secondString != NULL)
+	{
+		hcString intermediaryString;
 
+		intermediaryString = *firstString;
+		*firstString = *secondString;
+		*secondString = intermediaryString;
+	}
 }
 
 char hcPopBackString(hcString* string)
@@ -81,7 +92,7 @@ char hcPopBackString(hcString* string)
 	return character;
 }
 
-hcString hcGetSubString(hcString* string, uint32_t index)
+hcString hcGetSubString(hcString* string, uint64_t index)
 {
 	hcString subString = hcNewString("");
 	return subString;
@@ -91,7 +102,7 @@ bool hcIsStringAndCharArrayTheSame(hcString* string, const char* text)
 {
 	bool isSame = false;
 
-	if (string->data != 0)
+	if (string->data != NULL)
 	{
 		isSame = (strcmp(string->data, text) == 0);
 	}
@@ -101,22 +112,39 @@ bool hcIsStringAndCharArrayTheSame(hcString* string, const char* text)
 
 bool hcisStringEmpty(hcString* string)
 {
+	bool isEmpty = true;
 
+	if (string->data != NULL)
+		if (string->length > 0)
+			isEmpty = false;
+
+	return isEmpty;
 }
 
-void hcReserveString(hcString* string, uint32_t newCapacity)
+void hcReserveString(hcString* string, uint64_t newCapacity)
 {
-
+	if (string->data != NULL)
+	{
+		if (newCapacity > string->capacity)
+		{
+			string->data = realloc(string->data, newCapacity * sizeof(char));
+			if (string->data != NULL)
+				string->capacity = newCapacity;
+		}
+	}
 }
 
 void hcShrinkStringToFit(hcString* string)
 {
-
+	if (string->data != NULL)
+	{
+		string->capacity = string->length + 1;
+	}
 }
 
 void hcClearString(hcString* string)
 {
-	if (string->data != 0)
+	if (string->data != NULL)
 	{
 		string->data[0] = 0;
 		string->length = 0;
@@ -125,7 +153,7 @@ void hcClearString(hcString* string)
 
 void hcFreeString(hcString* string)
 {
-	if (string->data != 0)
+	if (string->data != NULL)
 	{
 		free(string->data);
 		string->length = 0;
