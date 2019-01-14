@@ -13,7 +13,7 @@ hcString hcNewString(const char* initialString)
 	return string;
 }
 
-void hcAppendCharToString(hcString* string, const char character)
+void hcAppendCharToString(hcString* string, char character)
 {
 	if (string->data != 0)
 	{
@@ -40,7 +40,7 @@ void hcAppendStringToString(hcString* firstString, hcString secondString)
 
 }
 
-void hcAssignCharToString(hcString* string, const char character)
+void hcAssignCharToString(hcString* string, char character)
 {
 
 }
@@ -50,12 +50,12 @@ void hcAssignStringToString(hcString* stringCopy, hcString* stringOriginal)
 
 }
 
-void hcInsertCharIntoString(hcString* stringTarget, const char character, uint32_t index)
+void hcInsertCharIntoString(hcString* stringTarget, char character, uint32_t index)
 {
 
 }
 
-void hcInsertStringIntoString(hcString* stringTarget, const char subString, uint32_t index)
+void hcInsertStringIntoString(hcString* stringTarget, char subString, uint32_t index)
 {
 
 }
