@@ -25,7 +25,7 @@ hcString hcExtractFileName(const char* filepath)
 		nameIndexStart--;
 
 	for (int i = nameIndexStart + 1; filepath[i] != '.'; i++)
-		hcAppendString(&fileName, filepath[i]);
+		hcAppendCharToString(&fileName, filepath[i]);
 
 	return fileName;
 }
@@ -44,7 +44,7 @@ hcString hcExtractFileExtension(const char* filepath)
 		nameIndexStart--;
 
 	for (int i = nameIndexStart + 1; filepath[i] != NULL; i++)
-		hcAppendString(&fileExtension, filepath[i]);
+		hcAppendCharToString(&fileExtension, filepath[i]);
 
 	return fileExtension;
 }

@@ -1,14 +1,14 @@
 #ifndef File_h
 #define File_h
 
-#include <stdbool.h>
-#include "DataStructures/Memory.h"
-#include "DataStructures/Strings.h"
-
 #ifdef __cplusplus
 extern "C"
 {
 #endif
+
+#include <stdbool.h>
+#include "DataStructures/Memory.h"
+#include "DataStructures/Strings.h"
 
 	bool hcFileExists(const char* filepath);
 	hcString hcExtractFileName(const char* filepath);

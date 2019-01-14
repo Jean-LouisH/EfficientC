@@ -1,7 +1,7 @@
-#include "test.h"
 #include "CompilerSwitch.h"
 
 #if (COMPILER_SWITCH == C)
+#include "test.h"
 
 int main(int argc, char* argv[])
 {

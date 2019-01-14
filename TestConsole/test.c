@@ -1,6 +1,7 @@
-#include "test.h"
+#include "CompilerSwitch.h"
 
 #if (COMPILER_SWITCH == C)
+#include "test.h"
 
 void testPrintMainToConsole()
 {
@@ -36,9 +37,9 @@ void testStringComparison()
 {
 	printf("\n\tTesting String Comparison...");
 	hcString string = hcNewString("Testing");
-	hcIsString(&string, "Banana");
-	hcIsString(&string, "Test");
-	hcIsString(&string, "Testing");
+	hcIsStringAndCharArrayTheSame(&string, "Banana");
+	hcIsStringAndCharArrayTheSame(&string, "Test");
+	hcIsStringAndCharArrayTheSame(&string, "Testing");
 	hcFreeString(&string);
 
 	hcConsolePause();

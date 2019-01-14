@@ -1,6 +1,7 @@
-#include "test.hpp"
+#include "CompilerSwitch.h"
 
 #if (COMPILER_SWITCH == Cpp)
+#include "test.hpp"
 
 void Test::PrintMainToConsole()
 {
@@ -36,9 +37,9 @@ void Test::StringComparison()
 {
 	printf("\n\tTesting String Comparison...");
 	hcString string = hcNewString("Testing");
-	hcIsString(&string, "Banana");
-	hcIsString(&string, "Test");
-	hcIsString(&string, "Testing");
+	hcIsStringAndCharArrayTheSame(&string, "Banana");
+	hcIsStringAndCharArrayTheSame(&string, "Test");
+	hcIsStringAndCharArrayTheSame(&string, "Testing");
 	hcFreeString(&string);
 
 	hcConsolePause();

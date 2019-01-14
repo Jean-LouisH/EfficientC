@@ -1,15 +1,15 @@
 #ifndef Memory_h
 #define Memory_h
 
-#include <stdint.h>
-
-//Unsigned
-//////////////////////////////////
-
 #ifdef __cplusplus
 extern "C"
 {
 #endif
+
+#include <stdint.h>
+
+//Unsigned
+//////////////////////////////////
 
 	typedef struct
 	{
