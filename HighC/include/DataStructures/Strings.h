@@ -20,7 +20,7 @@ hcString hcNewString(const char* initialString);
 void hcAppendCharToString(hcString* string, char character); 
 void hcAppendStringToString(hcString* firstString, hcString secondString);
 void hcAssignCharToString(hcString* string, char character);
-void hcAssignStringToString(hcString* stringCopy, hcString* stringOriginal);
+void hcAssignStringToString(hcString* stringCopy, hcString stringOriginal);
 void hcInsertCharIntoString(hcString* stringTarget, char character, uint64_t index);
 void hcInsertStringIntoString(hcString* stringTarget, char subString, uint64_t index);
 void hcEraseFromString(hcString* string, uint64_t first, uint64_t last);

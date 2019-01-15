@@ -37,7 +37,8 @@ void hcAppendCharToString(hcString* string, char character)
 
 void hcAppendStringToString(hcString* firstString, hcString secondString)
 {
-
+	if (firstString->data != NULL && secondString.data != NULL)
+		strcat(firstString->data, secondString.data);
 }
 
 void hcAssignCharToString(hcString* string, char character)
@@ -49,9 +50,10 @@ void hcAssignCharToString(hcString* string, char character)
 	}
 }
 
-void hcAssignStringToString(hcString* stringCopy, hcString* stringOriginal)
+void hcAssignStringToString(hcString* stringCopy, hcString stringOriginal)
 {
-
+	if (stringCopy->data != NULL && stringOriginal.data != NULL)
+		strcpy(stringCopy->data, stringOriginal.data);
 }
 
 void hcInsertCharIntoString(hcString* stringTarget, char character, uint64_t index)
@@ -89,6 +91,14 @@ void hcSwapStrings(hcString* firstString, hcString* secondString)
 char hcPopBackString(hcString* string)
 {
 	char character = NULL;
+
+	if (string->data != NULL)
+	{
+		character = string->data[string->length];
+		string->data[string->length - 1] = 0;
+		string->length--;
+	}
+
 	return character;
 }
 
