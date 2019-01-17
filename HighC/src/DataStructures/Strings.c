@@ -104,12 +104,14 @@ char hcPopBackString(hcString* string)
 
 uint32_t hcGetIndexBeforeString(hcString* string, const char* text)
 {
-
+	uint32_t startIndex = 0;
+	return startIndex;
 }
 
 uint32_t hcGetIndexAfterString(hcString* string, const char* text)
 {
-
+	uint32_t finishIndex = 0;
+	return finishIndex;
 }
 
 hcString hcGetSubString(hcString* string, uint32_t startIndex)
@@ -130,7 +132,8 @@ void hcCasefoldString(hcString* string)
 
 uint32_t hcCountSubstrings(hcString* string, const char* text)
 {
-
+	uint32_t subStringCount = 0;
+	return subStringCount;
 }
 
 void hcExpendTabs(hcString* string, uint8_t tabSize)
@@ -138,24 +141,62 @@ void hcExpendTabs(hcString* string, uint8_t tabSize)
 
 }
 
-bool hcIsStringAlphanumeric(hcString* string)
+void hcLowercaseString(hcString* string)
 {
 
 }
 
-bool hcIsStringAlphabet(hcString* string)
+void hcUppercaseString(hcString* string)
 {
 
+}
+
+bool hcIsStringAlphanumeric(hcString* string)
+{
+	bool isAlphanumeric = false;
+	return isAlphanumeric;
+}
+
+bool hcIsStringAlphabetical(hcString* string)
+{
+	bool isAlphabetical = false;
+	return isAlphabetical;
 }
 
 bool hcIsStringDecimal(hcString* string)
 {
+	bool isDecimal = false;
+	return isDecimal;
+}
 
+bool hcIsStringLowercase(hcString* string)
+{
+	bool isLowercase = false;
+	return isLowercase;
+}
+
+bool hcIsStringUppercase(hcString* string)
+{
+	bool isUppercase = false;
+	return isUppercase;
+}
+
+bool hcHasWhitespace(hcString* string)
+{
+	bool hasWhitespace= false;
+	return hasWhitespace;
+}
+
+bool hcDoesStringStartWith(hcString* string, const char* text)
+{
+	bool startsWithString = false;
+	return startsWithString;
 }
 
 bool hcDoesStringEndWith(hcString* string, const char* text)
 {
-
+	bool endsWithString = false;
+	return endsWithString;
 }
 
 bool hcIsStringAndCharArrayTheSame(hcString* string, const char* text)
@@ -163,9 +204,7 @@ bool hcIsStringAndCharArrayTheSame(hcString* string, const char* text)
 	bool isSame = false;
 
 	if (string->data != NULL)
-	{
 		isSame = (strcmp(string->data, text) == 0);
-	}
 
 	return isSame;
 }
@@ -197,9 +236,7 @@ void hcReserveString(hcString* string, uint32_t newCapacity)
 void hcShrinkStringToFit(hcString* string)
 {
 	if (string->data != NULL)
-	{
 		string->capacity = string->length + 1;
-	}
 }
 
 void hcClearString(hcString* string)
