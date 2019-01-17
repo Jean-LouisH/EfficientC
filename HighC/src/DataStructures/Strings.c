@@ -56,22 +56,22 @@ void hcAssignStringToString(hcString* stringCopy, hcString stringOriginal)
 		strcpy(stringCopy->data, stringOriginal.data);
 }
 
-void hcInsertCharIntoString(hcString* stringTarget, char character, uint64_t index)
+void hcInsertCharIntoString(hcString* stringTarget, char character, uint32_t startIndex)
 {
 
 }
 
-void hcInsertStringIntoString(hcString* stringTarget, char subString, uint64_t index)
+void hcInsertStringIntoString(hcString* stringTarget, hcString subString, uint32_t startIndex)
 {
 
 }
 
-void hcEraseFromString(hcString* string, uint64_t first, uint64_t last)
+void hcEraseIndicesFromString(hcString* string, uint32_t startIndex, uint32_t finishIndex)
 {
 
 }
 
-void hcReplaceToString(hcString* stringTarget, uint64_t first, uint64_t last, hcString* subString)
+void hcReplaceStringToString(hcString* stringTarget, hcString* subString, uint32_t startIndex)
 {
 
 }
@@ -102,10 +102,60 @@ char hcPopBackString(hcString* string)
 	return character;
 }
 
-hcString hcGetSubString(hcString* string, uint64_t index)
+uint32_t hcGetIndexBeforeString(hcString* string, const char* text)
+{
+
+}
+
+uint32_t hcGetIndexAfterString(hcString* string, const char* text)
+{
+
+}
+
+hcString hcGetSubString(hcString* string, uint32_t startIndex)
 {
 	hcString subString = hcNewString("");
 	return subString;
+}
+
+void hcCapitalizeString(hcString* string)
+{
+
+}
+
+void hcCasefoldString(hcString* string)
+{
+
+}
+
+uint32_t hcCountSubstrings(hcString* string, const char* text)
+{
+
+}
+
+void hcExpendTabs(hcString* string, uint8_t tabSize)
+{
+
+}
+
+bool hcIsStringAlphanumeric(hcString* string)
+{
+
+}
+
+bool hcIsStringAlphabet(hcString* string)
+{
+
+}
+
+bool hcIsStringDecimal(hcString* string)
+{
+
+}
+
+bool hcDoesStringEndWith(hcString* string, const char* text)
+{
+
 }
 
 bool hcIsStringAndCharArrayTheSame(hcString* string, const char* text)
@@ -131,7 +181,7 @@ bool hcisStringEmpty(hcString* string)
 	return isEmpty;
 }
 
-void hcReserveString(hcString* string, uint64_t newCapacity)
+void hcReserveString(hcString* string, uint32_t newCapacity)
 {
 	if (string->data != NULL)
 	{
