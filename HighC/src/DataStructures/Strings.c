@@ -114,7 +114,7 @@ uint32_t hcGetIndexAfterString(hcString* string, const char* text)
 	return finishIndex;
 }
 
-hcString hcGetSubString(hcString* string, uint32_t startIndex)
+hcString hcGetSubstring(hcString* string, uint32_t startIndex)
 {
 	hcString subString = hcNewString("");
 	return subString;
@@ -136,7 +136,7 @@ uint32_t hcCountSubstrings(hcString* string, const char* text)
 	return subStringCount;
 }
 
-void hcExpendTabs(hcString* string, uint8_t tabSize)
+void hcExpandTabs(hcString* string, uint8_t tabSize)
 {
 
 }
@@ -167,6 +167,16 @@ bool hcIsStringDecimal(hcString* string)
 {
 	bool isDecimal = false;
 	return isDecimal;
+}
+
+bool hcIsStringCapitalized(hcString* string)
+{
+	bool isCapitalized = false;
+
+	if (string->data != NULL)
+		isCapitalized = !(string->data[0] & 0x0020);
+
+	return isCapitalized;
 }
 
 bool hcIsStringLowercase(hcString* string)
