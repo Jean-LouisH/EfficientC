@@ -10,8 +10,8 @@ extern "C"
 #include "DataStructures/Memory.h"
 #include "DataStructures/Strings.h"
 
-hcString hcConvertMemoryU8ToString(hcMemoryU8 memory);
-hcString hcConvertMemoryS8ToString(hcMemoryS8 memory);
+hcString hcConvertMemU8ToString(hcMemU8 mem);
+hcString hcConvertMemS8ToString(hcMemS8 mem);
 
 #ifdef __cplusplus
 }

@@ -1,11 +1,11 @@
 #include "../include/Converters.h"
 
-hcString hcConvertMemoryU8ToString(hcMemoryU8 memory)
+hcString hcConvertMemU8ToString(hcMemU8 mem)
 {
-	return hcNewString(memory.data);
+	return hcNewString(mem.data);
 }
 
-hcString hcConvertMemoryS8ToString(hcMemoryS8 memory)
+hcString hcConvertMemS8ToString(hcMemS8 mem)
 {
-	return hcNewString(memory.data);
+	return hcNewString(mem.data);
 }

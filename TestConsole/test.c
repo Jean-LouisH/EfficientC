@@ -14,8 +14,8 @@ void testFileOperations()
 {
 	hcString fileName;
 	hcString fileExtension;
-	hcString ASCII;
-	hcMemoryU8 binaryU8;
+	hcString ascii;
+	hcMemU8 memU8;
 
 	const char* fileTest = "FileTest.txt";
 
@@ -26,8 +26,8 @@ void testFileOperations()
 		fileName = hcExtractFileName(fileTest);
 		fileExtension = hcExtractFileExtension(fileTest);
 
-		ASCII = hcReadASCIIStringFromFile(fileTest);
-		binaryU8 = hcReadBinaryU8FromFile(fileTest);
+		ascii = hcReadASCIIStringFromFile(fileTest);
+		memU8 = hcReadMemU8FromFile(fileTest);
 	}
 
 	hcConsolePause();

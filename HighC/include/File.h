@@ -15,32 +15,32 @@ hcString hcExtractFileName(const char* filepath);
 hcString hcExtractFileExtension(const char* filepath);
 hcString hcReadASCIIStringFromFile(const char* filepath);
 
-hcMemoryU8 hcReadBinaryU8FromFile(const char* filepath);
-hcMemoryU16 hcReadBinaryU16FromFile(const char* filepath);
-hcMemoryU32 hcReadBinaryU32FromFile(const char* filepath);
-hcMemoryU64 hcReadBinaryU64FromFile(const char* filepath);
-hcMemoryS8 hcReadBinaryS8FromFile(const char* filepath);
-hcMemoryS16 hcReadBinaryS16FromFile(const char* filepath);
-hcMemoryS32 hcReadBinaryS32FromFile(const char* filepath);
-hcMemoryS64 hcReadBinaryS64FromFile(const char* filepath);
+hcMemU8 hcReadMemU8FromFile(const char* filepath);
+hcMemU16 hcReadMemU16FromFile(const char* filepath);
+hcMemU32 hcReadMemU32FromFile(const char* filepath);
+hcMemU64 hcReadMemU64FromFile(const char* filepath);
+hcMemS8 hcReadMemS8FromFile(const char* filepath);
+hcMemS16 hcReadMemS16FromFile(const char* filepath);
+hcMemS32 hcReadMemS32FromFile(const char* filepath);
+hcMemS64 hcReadMemS64FromFile(const char* filepath);
 
-void hcWriteBinaryU8ToFile(hcMemoryU8* binary, const char* filepath);
-void hcWriteBinaryU16ToFile(hcMemoryU16* binary, const char* filepath);
-void hcWriteBinaryU32ToFile(hcMemoryU32* binary, const char* filepath);
-void hcWriteBinaryU64ToFile(hcMemoryU64* binary, const char* filepath);
-void hcWriteBinaryS8ToFile(hcMemoryS8* binary, const char* filepath);
-void hcWriteBinaryS16ToFile(hcMemoryS16* binary, const char* filepath);
-void hcWriteBinaryS32ToFile(hcMemoryS32* binary, const char* filepath);
-void hcWriteBinaryS64ToFile(hcMemoryS64* binary, const char* filepath);
+void hcWriteMemU8ToFile(hcMemU8* mem, const char* filepath);
+void hcWriteMemU16ToFile(hcMemU16* mem, const char* filepath);
+void hcWriteMemU32ToFile(hcMemU32* mem, const char* filepath);
+void hcWriteMemU64ToFile(hcMemU64* mem, const char* filepath);
+void hcWriteMemS8ToFile(hcMemS8* mem, const char* filepath);
+void hcWriteMemS16ToFile(hcMemS16* mem, const char* filepath);
+void hcWriteMemS32ToFile(hcMemS32* mem, const char* filepath);
+void hcWriteMemS64ToFile(hcMemS64* mem, const char* filepath);
 
-void hcAppendBinaryU8ToFile(hcMemoryU8* binary, const char* filepath);
-void hcAppendBinaryU16ToFile(hcMemoryU16* binary, const char* filepath);
-void hcAppendBinaryU32ToFile(hcMemoryU32* binary, const char* filepath);
-void hcAppendBinaryU64ToFile(hcMemoryU64* binary, const char* filepath);
-void hcAppendBinaryS8ToFile(hcMemoryS8* binary, const char* filepath);
-void hcAppendBinaryS16ToFile(hcMemoryS16* binary, const char* filepath);
-void hcAppendBinaryS32ToFile(hcMemoryS32* binary, const char* filepath);
-void hcAppendBinaryS64ToFile(hcMemoryS64* binary, const char* filepath);
+void hcAppendMemU8ToFile(hcMemU8* mem, const char* filepath);
+void hcAppendMemU16ToFile(hcMemU16* mem, const char* filepath);
+void hcAppendMemU32ToFile(hcMemU32* mem, const char* filepath);
+void hcAppendMemU64ToFile(hcMemU64* mem, const char* filepath);
+void hcAppendMemS8ToFile(hcMemS8* mem, const char* filepath);
+void hcAppendMemS16ToFile(hcMemS16* mem, const char* filepath);
+void hcAppendMemS32ToFile(hcMemS32* mem, const char* filepath);
+void hcAppendMemS64ToFile(hcMemS64* mem, const char* filepath);
 
 #ifdef __cplusplus
 }
