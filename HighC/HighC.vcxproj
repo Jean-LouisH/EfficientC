@@ -25,6 +25,7 @@
     <ClInclude Include="include\DataStructures\Strings.h" />
     <ClInclude Include="include\File.h" />
     <ClInclude Include="include\HighC.h" />
+    <ClInclude Include="include\Types.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Console.c" />
