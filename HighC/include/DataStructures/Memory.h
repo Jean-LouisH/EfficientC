@@ -15,25 +15,25 @@ typedef struct
 {
 	uint8_t* data;
 	uint64_t size;
-}hcMemoryU8;
+}hcMemU8;
 
 typedef struct
 {
 	uint16_t* data;
 	uint64_t size;
-}hcMemoryU16;
+}hcMemU16;
 
 typedef struct
 {
 	uint32_t* data;
 	uint64_t size;
-}hcMemoryU32;
+}hcMemU32;
 
 typedef struct
 {
 	uint64_t* data;
 	uint64_t size;
-}hcMemoryU64;
+}hcMemU64;
 
 //Signed
 //////////////////////////////////
@@ -42,35 +42,51 @@ typedef struct
 {
 	int8_t* data;
 	uint64_t size;
-}hcMemoryS8;
+}hcMemS8;
 
 typedef struct
 {
 	int16_t* data;
 	uint64_t size;
-}hcMemoryS16;
+}hcMemS16;
 
 typedef struct
 {
 	int32_t* data;
 	uint64_t size;
-}hcMemoryS32;
+}hcMemS32;
 
 typedef struct
 {
 	int64_t* data;
 	uint64_t size;
-}hcMemoryS64;
+}hcMemS64;
 
-void hcFreeMemoryU8(hcMemoryU8* memory);
-void hcFreeMemoryU16(hcMemoryU16* memory);
-void hcFreeMemoryU32(hcMemoryU32* memory);
-void hcFreeMemoryU64(hcMemoryU64* memory);
+hcMemU8 hcAllocMemU8(uint64_t capacity);
+hcMemU16 hcAllocMemU16(uint64_t capacity);
+hcMemU32 hcAllocMemU32(uint64_t capacity);
+hcMemU64 hcAllocMemU64(uint64_t capacity);
+hcMemS8 hcAllocMemS8(uint64_t capacity);
+hcMemS16 hcAllocMemS16(uint64_t capacity);
+hcMemS32 hcAllocMemS32(uint64_t capacity);
+hcMemS64 hcAllocMemS64(uint64_t capacity);
+hcMemU8 hcAllocUninitMemU8(uint64_t capacity);
+hcMemU16 hcAllocUninitMemU16(uint64_t capacity);
+hcMemU32 hcAllocUninitMemU32(uint64_t capacity);
+hcMemU64 hcAllocUninitMemU64(uint64_t capacity);
+hcMemS8 hcAllocUninitMemS8(uint64_t capacity);
+hcMemS16 hcAllocUninitMemS16(uint64_t capacity);
+hcMemS32 hcAllocUninitMemS32(uint64_t capacity);
+hcMemS64 hcAllocUninitMemS64(uint64_t capacity);
 
-void hcFreeMemoryS8(hcMemoryS8* memory);
-void hcFreeMemoryS16(hcMemoryS16* memory);
-void hcFreeMemoryS32(hcMemoryS32* memory);
-void hcFreeMemoryS64(hcMemoryS64* memory);
+void hcFreeMemU8(hcMemU8* mem);
+void hcFreeMemU16(hcMemU16* mem);
+void hcFreeMemU32(hcMemU32* mem);
+void hcFreeMemU64(hcMemU64* mem);
+void hcFreeMemS8(hcMemS8* mem);
+void hcFreeMemS16(hcMemS16* mem);
+void hcFreeMemS32(hcMemS32* mem);
+void hcFreeMemS64(hcMemS64* mem);
 
 #ifdef __cplusplus
 }
