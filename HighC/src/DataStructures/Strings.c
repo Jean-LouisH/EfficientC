@@ -56,14 +56,53 @@ void hcAssignStringToString(hcString* stringCopy, hcString stringOriginal)
 		strcpy(stringCopy->data, stringOriginal.data);
 }
 
-void hcInsertCharIntoString(hcString* stringTarget, char character, uint32_t startIndex)
+void hcInsertCharIntoString(hcString* string, char character, uint32_t startIndex)
 {
+	if (string->data != NULL && startIndex <= string->length)
+	{
+		if (string->length + 1 >= string->capacity)
+		{
+			int newCapacity = string->capacity + 1;
+			string->data = realloc(string->data, newCapacity * sizeof(char));
+			if (string->data != NULL)
+				string->capacity = newCapacity;
+		}
 
+		/*in case allocation fails, check again.*/
+		if (string->length < string->capacity + 1)
+		{
+			for (int i = string->length; i >= startIndex; i--)
+				string->data[i + 1] = string->data[i];
+			string->length++;
+			string->data[startIndex] = character;
+			string->data[string->length + 1] = 0;
+		}
+	}
 }
 
-void hcInsertStringIntoString(hcString* stringTarget, hcString subString, uint32_t startIndex)
+void hcInsertStringIntoString(hcString* string, hcString subString, uint32_t startIndex)
 {
+	if (string->data != NULL && startIndex <= string->length)
+	{
+		if (string->length + subString.length >= string->capacity)
+		{
+			int newCapacity = string->capacity + subString.length + 1;
+			string->data = realloc(string->data, newCapacity * sizeof(char));
+			if (string->data != NULL)
+				string->capacity = newCapacity;
+		}
 
+		/*in case allocation fails, check again.*/
+		if (string->length < string->capacity + subString.length)
+		{
+			for (int i = string->length; i >= startIndex; i--)
+				string->data[i + subString.length] = string->data[i];
+			string->length += subString.length;
+			for (int i = 0; i < subString.length; i++)
+				string->data[startIndex + i] = subString.data[i];
+			string->data[string->length + 1] = 0;
+		}
+	}
 }
 
 void hcEraseIndicesFromString(hcString* string, uint32_t startIndex, uint32_t finishIndex)
@@ -71,7 +110,7 @@ void hcEraseIndicesFromString(hcString* string, uint32_t startIndex, uint32_t fi
 
 }
 
-void hcReplaceStringToString(hcString* stringTarget, hcString* subString, uint32_t startIndex)
+void hcReplaceStringToString(hcString* string, hcString* subString, uint32_t startIndex)
 {
 
 }
