@@ -19,9 +19,3 @@ EfficientC
 This software is free, open source and [MIT Licenced](https://github.com/Jean-LouisH/EfficientC/blob/master/LICENSE). You can find the software repository [here](https://github.com/Jean-LouisH/EfficientC).
 
 
-
-## 2. Examples
-
-![](Images/PrintingFile.png)
-
-
