@@ -1,7 +1,7 @@
 #include "CompilerSwitch.h"
 
 #if (COMPILER_SWITCH == C)
-#include <HighC.h>
+#include <EfficientC.h>
 
 void testPrintMainToConsole();
 void testFileOperations();

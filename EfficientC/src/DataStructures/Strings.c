@@ -2,9 +2,9 @@
 #include <string.h>
 #include <stdlib.h>
 
-hcString hcNewString(const char* initialString)
+ecString ecNewString(const char* initialString)
 {
-	hcString string;
+	ecString string;
 	string.length = strlen(initialString);
 	string.capacity = string.length + 1;
 	string.data = calloc(string.capacity, sizeof(char));
@@ -13,7 +13,7 @@ hcString hcNewString(const char* initialString)
 	return string;
 }
 
-void hcAppendCharToString(hcString* string, char character)
+void ecAppendCharToString(ecString* string, char character)
 {
 	if (string->data != NULL)
 	{
@@ -35,28 +35,28 @@ void hcAppendCharToString(hcString* string, char character)
 	}
 }
 
-void hcAppendStringToString(hcString* firstString, hcString secondString)
+void ecAppendStringToString(ecString* firstString, ecString secondString)
 {
 	if (firstString->data != NULL && secondString.data != NULL)
 		strcat(firstString->data, secondString.data);
 }
 
-void hcAssignCharToString(hcString* string, char character)
+void ecAssignCharToString(ecString* string, char character)
 {
 	if (string->data != NULL)
 	{
-		hcClearString(string);
-		hcAppendCharToString(string, character);
+		ecClearString(string);
+		ecAppendCharToString(string, character);
 	}
 }
 
-void hcAssignStringToString(hcString* stringCopy, hcString stringOriginal)
+void ecAssignStringToString(ecString* stringCopy, ecString stringOriginal)
 {
 	if (stringCopy->data != NULL && stringOriginal.data != NULL)
 		strcpy(stringCopy->data, stringOriginal.data);
 }
 
-void hcInsertCharIntoString(hcString* string, char character, uint32_t startIndex)
+void ecInsertCharIntoString(ecString* string, char character, uint32_t startIndex)
 {
 	if (string->data != NULL && startIndex <= string->length)
 	{
@@ -80,7 +80,7 @@ void hcInsertCharIntoString(hcString* string, char character, uint32_t startInde
 	}
 }
 
-void hcInsertStringIntoString(hcString* string, hcString subString, uint32_t startIndex)
+void ecInsertStringIntoString(ecString* string, ecString subString, uint32_t startIndex)
 {
 	if (string->data != NULL && startIndex <= string->length)
 	{
@@ -105,21 +105,21 @@ void hcInsertStringIntoString(hcString* string, hcString subString, uint32_t sta
 	}
 }
 
-void hcEraseIndicesFromString(hcString* string, uint32_t startIndex, uint32_t finishIndex)
+void ecEraseIndicesFromString(ecString* string, uint32_t startIndex, uint32_t finishIndex)
 {
 
 }
 
-void hcReplaceStringToString(hcString* string, hcString* subString, uint32_t startIndex)
+void ecReplaceStringToString(ecString* string, ecString* subString, uint32_t startIndex)
 {
 
 }
 
-void hcSwapStrings(hcString* firstString, hcString* secondString)
+void ecSwapStrings(ecString* firstString, ecString* secondString)
 {
 	if (firstString->data != NULL && secondString != NULL)
 	{
-		hcString intermediaryString;
+		ecString intermediaryString;
 
 		intermediaryString = *firstString;
 		*firstString = *secondString;
@@ -127,7 +127,7 @@ void hcSwapStrings(hcString* firstString, hcString* secondString)
 	}
 }
 
-char hcPopBackString(hcString* string)
+char ecPopBackString(ecString* string)
 {
 	char character = NULL;
 
@@ -141,74 +141,74 @@ char hcPopBackString(hcString* string)
 	return character;
 }
 
-uint32_t hcGetIndexBeforeString(hcString* string, const char* text)
+uint32_t ecGetIndexBeforeString(ecString* string, const char* text)
 {
 	uint32_t startIndex = 0;
 	return startIndex;
 }
 
-uint32_t hcGetIndexAfterString(hcString* string, const char* text)
+uint32_t ecGetIndexAfterString(ecString* string, const char* text)
 {
 	uint32_t finishIndex = 0;
 	return finishIndex;
 }
 
-hcString hcGetSubstring(hcString* string, uint32_t startIndex)
+ecString ecGetSubstring(ecString* string, uint32_t startIndex)
 {
-	hcString subString = hcNewString("");
+	ecString subString = ecNewString("");
 	return subString;
 }
 
-void hcCapitalizeString(hcString* string)
+void ecCapitalizeString(ecString* string)
 {
 
 }
 
-void hcCasefoldString(hcString* string)
+void ecCasefoldString(ecString* string)
 {
 
 }
 
-uint32_t hcCountSubstrings(hcString* string, const char* text)
+uint32_t ecCountSubstrings(ecString* string, const char* text)
 {
 	uint32_t subStringCount = 0;
 	return subStringCount;
 }
 
-void hcExpandTabs(hcString* string, uint8_t tabSize)
+void ecExpandTabs(ecString* string, uint8_t tabSize)
 {
 
 }
 
-void hcLowercaseString(hcString* string)
+void ecLowercaseString(ecString* string)
 {
 
 }
 
-void hcUppercaseString(hcString* string)
+void ecUppercaseString(ecString* string)
 {
 
 }
 
-bool hcIsStringAlphanumeric(hcString* string)
+bool ecIsStringAlphanumeric(ecString* string)
 {
 	bool isAlphanumeric = false;
 	return isAlphanumeric;
 }
 
-bool hcIsStringAlphabetical(hcString* string)
+bool ecIsStringAlphabetical(ecString* string)
 {
 	bool isAlphabetical = false;
 	return isAlphabetical;
 }
 
-bool hcIsStringDecimal(hcString* string)
+bool ecIsStringDecimal(ecString* string)
 {
 	bool isDecimal = false;
 	return isDecimal;
 }
 
-bool hcIsStringCapitalized(hcString* string)
+bool ecIsStringCapitalized(ecString* string)
 {
 	bool isCapitalized = false;
 
@@ -218,37 +218,37 @@ bool hcIsStringCapitalized(hcString* string)
 	return isCapitalized;
 }
 
-bool hcIsStringLowercase(hcString* string)
+bool ecIsStringLowercase(ecString* string)
 {
 	bool isLowercase = false;
 	return isLowercase;
 }
 
-bool hcIsStringUppercase(hcString* string)
+bool ecIsStringUppercase(ecString* string)
 {
 	bool isUppercase = false;
 	return isUppercase;
 }
 
-bool hcHasWhitespace(hcString* string)
+bool ecHasWhitespace(ecString* string)
 {
 	bool hasWhitespace= false;
 	return hasWhitespace;
 }
 
-bool hcDoesStringStartWith(hcString* string, const char* text)
+bool ecDoesStringStartWith(ecString* string, const char* text)
 {
 	bool startsWithString = false;
 	return startsWithString;
 }
 
-bool hcDoesStringEndWith(hcString* string, const char* text)
+bool ecDoesStringEndWith(ecString* string, const char* text)
 {
 	bool endsWithString = false;
 	return endsWithString;
 }
 
-bool hcIsStringAndCharArrayTheSame(hcString* string, const char* text)
+bool ecIsStringAndCharArrayTheSame(ecString* string, const char* text)
 {
 	bool isSame = false;
 
@@ -258,7 +258,7 @@ bool hcIsStringAndCharArrayTheSame(hcString* string, const char* text)
 	return isSame;
 }
 
-bool hcisStringEmpty(hcString* string)
+bool ecisStringEmpty(ecString* string)
 {
 	bool isEmpty = true;
 
@@ -269,7 +269,7 @@ bool hcisStringEmpty(hcString* string)
 	return isEmpty;
 }
 
-void hcReserveString(hcString* string, uint32_t newCapacity)
+void ecReserveString(ecString* string, uint32_t newCapacity)
 {
 	if (string->data != NULL)
 	{
@@ -282,13 +282,13 @@ void hcReserveString(hcString* string, uint32_t newCapacity)
 	}
 }
 
-void hcShrinkStringToFit(hcString* string)
+void ecShrinkStringToFit(ecString* string)
 {
 	if (string->data != NULL)
 		string->capacity = string->length + 1;
 }
 
-void hcClearString(hcString* string)
+void ecClearString(ecString* string)
 {
 	if (string->data != NULL)
 	{
@@ -297,7 +297,7 @@ void hcClearString(hcString* string)
 	}
 }
 
-void hcFreeString(hcString* string)
+void ecFreeString(ecString* string)
 {
 	if (string->data != NULL)
 	{

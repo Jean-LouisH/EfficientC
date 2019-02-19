@@ -3,65 +3,65 @@
 
 //Allocations of clear memory
 
-hcMemU8 hcAllocMemU8(uint64_t capacity)
+ecMemU8 ecAllocMemU8(uint64_t capacity)
 {
-	hcMemU8 mem;
+	ecMemU8 mem;
 	mem.size = capacity;
 	mem.data = calloc(sizeof(uint8_t), mem.size); 
 	return mem;
 }
 
-hcMemU16 hcAllocMemU16(uint64_t capacity)
+ecMemU16 ecAllocMemU16(uint64_t capacity)
 {
-	hcMemU16 mem;
+	ecMemU16 mem;
 	mem.size = capacity;
 	mem.data = calloc(sizeof(uint16_t), mem.size);
 	return mem;
 }
 
-hcMemU32 hcAllocMemU32(uint64_t capacity)
+ecMemU32 ecAllocMemU32(uint64_t capacity)
 {
-	hcMemU32 mem;
+	ecMemU32 mem;
 	mem.size = capacity;
 	mem.data = calloc(sizeof(uint32_t), mem.size);
 	return mem;
 }
 
-hcMemU64 hcAllocMemU64(uint64_t capacity)
+ecMemU64 ecAllocMemU64(uint64_t capacity)
 {
-	hcMemU64 mem;
+	ecMemU64 mem;
 	mem.size = capacity;
 	mem.data = calloc(sizeof(uint64_t), mem.size);
 	return mem;
 }
 
-hcMemS8 hcAllocMemS8(uint64_t capacity)
+ecMemS8 ecAllocMemS8(uint64_t capacity)
 {
-	hcMemS8 mem;
+	ecMemS8 mem;
 	mem.size = capacity;
 	mem.data = calloc(sizeof(int8_t), mem.size);
 	return mem;
 }
 
-hcMemS16 hcAllocMemS16(uint64_t capacity)
+ecMemS16 ecAllocMemS16(uint64_t capacity)
 {
-	hcMemS16 mem;
+	ecMemS16 mem;
 	mem.size = capacity;
 	mem.data = calloc(sizeof(int16_t), mem.size);
 	return mem;
 }
 
-hcMemS32 hcAllocMemS32(uint64_t capacity)
+ecMemS32 ecAllocMemS32(uint64_t capacity)
 {
-	hcMemS32 mem;
+	ecMemS32 mem;
 	mem.size = capacity;
 	mem.data = calloc(sizeof(int32_t), mem.size);
 	return mem;
 }
 
-hcMemS64 hcAllocMemS64(uint64_t capacity)
+ecMemS64 ecAllocMemS64(uint64_t capacity)
 {
-	hcMemS64 mem;
+	ecMemS64 mem;
 	mem.size = capacity;
 	mem.data = calloc(sizeof(int64_t), mem.size);
 	return mem;
@@ -69,65 +69,65 @@ hcMemS64 hcAllocMemS64(uint64_t capacity)
 
 //Allocation of uninitialized memory
 
-hcMemU8 hcAllocUninitMemU8(uint64_t capacity)
+ecMemU8 ecAllocUninitMemU8(uint64_t capacity)
 {
-	hcMemU8 mem;
+	ecMemU8 mem;
 	mem.size = capacity;
 	mem.data = malloc(sizeof(uint8_t) * mem.size);
 	return mem;
 }
 
-hcMemU16 hcAllocUninitMemU16(uint64_t capacity)
+ecMemU16 ecAllocUninitMemU16(uint64_t capacity)
 {
-	hcMemU16 mem;
+	ecMemU16 mem;
 	mem.size = capacity;
 	mem.data = malloc(sizeof(uint16_t) * mem.size);
 	return mem;
 }
 
-hcMemU32 hcAllocUninitMemU32(uint64_t capacity)
+ecMemU32 ecAllocUninitMemU32(uint64_t capacity)
 {
-	hcMemU32 mem;
+	ecMemU32 mem;
 	mem.size = capacity;
 	mem.data = malloc(sizeof(uint32_t) * mem.size);
 	return mem;
 }
 
-hcMemU64 hcAllocUninitMemU64(uint64_t capacity)
+ecMemU64 ecAllocUninitMemU64(uint64_t capacity)
 {
-	hcMemU64 mem;
+	ecMemU64 mem;
 	mem.size = capacity;
 	mem.data = malloc(sizeof(uint64_t) * mem.size);
 	return mem;
 }
 
-hcMemS8 hcAllocUninitMemS8(uint64_t capacity)
+ecMemS8 ecAllocUninitMemS8(uint64_t capacity)
 {
-	hcMemS8 mem;
+	ecMemS8 mem;
 	mem.size = capacity;
 	mem.data = malloc(sizeof(int8_t) * mem.size);
 	return mem;
 }
 
-hcMemS16 hcAllocUninitMemS16(uint64_t capacity)
+ecMemS16 ecAllocUninitMemS16(uint64_t capacity)
 {
-	hcMemS16 mem;
+	ecMemS16 mem;
 	mem.size = capacity;
 	mem.data = malloc(sizeof(int16_t) * mem.size);
 	return mem;
 }
 
-hcMemS32 hcAllocUninitMemS32(uint64_t capacity)
+ecMemS32 ecAllocUninitMemS32(uint64_t capacity)
 {
-	hcMemS32 mem;
+	ecMemS32 mem;
 	mem.size = capacity;
 	mem.data = malloc(sizeof(int32_t) * mem.size);
 	return mem;
 }
 
-hcMemS64 hcAllocUninitMemS64(uint64_t capacity)
+ecMemS64 ecAllocUninitMemS64(uint64_t capacity)
 {
-	hcMemS64 mem;
+	ecMemS64 mem;
 	mem.size = capacity;
 	mem.data = malloc(sizeof(int64_t) * mem.size);
 	return mem;
@@ -135,49 +135,49 @@ hcMemS64 hcAllocUninitMemS64(uint64_t capacity)
 
 //Free memory
 
-void hcFreeMemU8(hcMemU8* mem)
+void ecFreeMemU8(ecMemU8* mem)
 {
 	free(mem->data);
 	mem->size = 0;
 }
 
-void hcFreeMemU16(hcMemU16* mem)
+void ecFreeMemU16(ecMemU16* mem)
 {
 	free(mem->data);
 	mem->size = 0;
 }
 
-void hcFreeMemU32(hcMemU32* mem)
+void ecFreeMemU32(ecMemU32* mem)
 {
 	free(mem->data);
 	mem->size = 0;
 }
 
-void hcFreeMemU64(hcMemU64* mem)
+void ecFreeMemU64(ecMemU64* mem)
 {
 	free(mem->data);
 	mem->size = 0;
 }
 
-void hcFreeMemS8(hcMemS8* mem)
+void ecFreeMemS8(ecMemS8* mem)
 {
 	free(mem->data);
 	mem->size = 0;
 }
 
-void hcFreeMemS16(hcMemS16* mem)
+void ecFreeMemS16(ecMemS16* mem)
 {
 	free(mem->data);
 	mem->size = 0;
 }
 
-void hcFreeMemS32(hcMemS32* mem)
+void ecFreeMemS32(ecMemS32* mem)
 {
 	free(mem->data);
 	mem->size = 0;
 }
 
-void hcFreeMemS64(hcMemS64* mem)
+void ecFreeMemS64(ecMemS64* mem)
 {
 	free(mem->data);
 	mem->size = 0;

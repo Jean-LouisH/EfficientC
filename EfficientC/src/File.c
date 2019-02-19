@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-bool hcFileExists(const char* filepath)
+bool ecFileExists(const char* filepath)
 {
 	FILE* readFile = fopen(filepath, "rb");
 	if (readFile != NULL)
@@ -11,9 +11,9 @@ bool hcFileExists(const char* filepath)
 	return (bool)readFile;
 }
 
-hcString hcExtractFileName(const char* filepath)
+ecString ecExtractFileName(const char* filepath)
 {
-	hcString fileName = hcNewString("");
+	ecString fileName = ecNewString("");
 	int nameIndexStart = 0;
 	int filepathLength = 0;
 
@@ -25,14 +25,14 @@ hcString hcExtractFileName(const char* filepath)
 		nameIndexStart--;
 
 	for (int i = nameIndexStart + 1; filepath[i] != '.'; i++)
-		hcAppendCharToString(&fileName, filepath[i]);
+		ecAppendCharToString(&fileName, filepath[i]);
 
 	return fileName;
 }
 
-hcString hcExtractFileExtension(const char* filepath)
+ecString ecExtractFileExtension(const char* filepath)
 {
-	hcString fileExtension = hcNewString("");
+	ecString fileExtension = ecNewString("");
 	int nameIndexStart = 0;
 	int filepathLength = 0;
 
@@ -44,16 +44,16 @@ hcString hcExtractFileExtension(const char* filepath)
 		nameIndexStart--;
 
 	for (int i = nameIndexStart + 1; filepath[i] != NULL; i++)
-		hcAppendCharToString(&fileExtension, filepath[i]);
+		ecAppendCharToString(&fileExtension, filepath[i]);
 
 	return fileExtension;
 }
 
-hcString hcReadASCIIStringFromFile(const char* filepath)
+ecString ecReadASCIIStringFromFile(const char* filepath)
 {
 	FILE* readFile = fopen(filepath, "rb");
-	hcMemU8 mem;
-	hcString string;
+	ecMemU8 mem;
+	ecString string;
 
 	mem.data = NULL;
 	mem.size = 0;
@@ -68,18 +68,18 @@ hcString hcReadASCIIStringFromFile(const char* filepath)
 		{
 			fread(mem.data, sizeof(uint8_t), mem.size, readFile);
 			mem.data[mem.size] = NULL;
-			string = hcConvertMemU8ToString(mem);
-			hcFreeMemU8(&mem);
+			string = ecConvertMemU8ToString(mem);
+			ecFreeMemU8(&mem);
 		}
 		fclose(readFile);
 	}
 	return string;
 }
 
-hcMemU8 hcReadMemU8FromFile(const char* filepath)
+ecMemU8 ecReadMemU8FromFile(const char* filepath)
 {
 	FILE* readFile = fopen(filepath, "rb");
-	hcMemU8 mem;
+	ecMemU8 mem;
 	mem.data = NULL;
 	mem.size = 0;
 	if (readFile != NULL)
@@ -95,10 +95,10 @@ hcMemU8 hcReadMemU8FromFile(const char* filepath)
 	return mem;
 }
 
-hcMemU16 hcReadMemU16FromFile(const char* filepath)
+ecMemU16 ecReadMemU16FromFile(const char* filepath)
 {
 	FILE* readFile = fopen(filepath, "rb");
-	hcMemU16 mem;
+	ecMemU16 mem;
 	mem.data = NULL;
 	mem.size = 0;
 	if (readFile != NULL)
@@ -114,10 +114,10 @@ hcMemU16 hcReadMemU16FromFile(const char* filepath)
 	return mem;
 }
 
-hcMemU32 hcReadMemU32FromFile(const char* filepath)
+ecMemU32 ecReadMemU32FromFile(const char* filepath)
 {
 	FILE* readFile = fopen(filepath, "rb");
-	hcMemU32 mem;
+	ecMemU32 mem;
 	mem.data = NULL;
 	mem.size = 0;
 	if (readFile != NULL)
@@ -133,10 +133,10 @@ hcMemU32 hcReadMemU32FromFile(const char* filepath)
 	return mem;
 }
 
-hcMemU64 hcReadMemU64FromFile(const char* filepath)
+ecMemU64 ecReadMemU64FromFile(const char* filepath)
 {
 	FILE* readFile = fopen(filepath, "rb");
-	hcMemU64 mem;
+	ecMemU64 mem;
 	mem.data = NULL;
 	mem.size = 0;
 	if (readFile != NULL)
@@ -152,43 +152,43 @@ hcMemU64 hcReadMemU64FromFile(const char* filepath)
 	return mem;
 }
 
-hcMemS8 hcReadMemS8FromFile(const char* filepath)
+ecMemS8 ecReadMemS8FromFile(const char* filepath)
 {
-	hcMemS8 mem;
-	hcMemU8 temp = hcReadMemU8FromFile(filepath);
+	ecMemS8 mem;
+	ecMemU8 temp = ecReadMemU8FromFile(filepath);
 	mem.data = temp.data;
 	mem.size = temp.size;
 	return mem;
 }
 
-hcMemS16 hcReadMemS16FromFile(const char* filepath)
+ecMemS16 ecReadMemS16FromFile(const char* filepath)
 {
-	hcMemS16 mem;
-	hcMemU16 temp = hcReadMemU16FromFile(filepath);
+	ecMemS16 mem;
+	ecMemU16 temp = ecReadMemU16FromFile(filepath);
 	mem.data = temp.data;
 	mem.size = temp.size;
 	return mem;
 }
 
-hcMemS32 hcReadMemS32FromFile(const char* filepath)
+ecMemS32 ecReadMemS32FromFile(const char* filepath)
 {
-	hcMemS32 mem;
-	hcMemU32 temp = hcReadMemU32FromFile(filepath);
+	ecMemS32 mem;
+	ecMemU32 temp = ecReadMemU32FromFile(filepath);
 	mem.data = temp.data;
 	mem.size = temp.size;
 	return mem;
 }
 
-hcMemS64 hcReadMemS64FromFile(const char* filepath)
+ecMemS64 ecReadMemS64FromFile(const char* filepath)
 {
-	hcMemS64 mem;
-	hcMemU64 temp = hcReadMemU64FromFile(filepath);
+	ecMemS64 mem;
+	ecMemU64 temp = ecReadMemU64FromFile(filepath);
 	mem.data = temp.data;
 	mem.size = temp.size;
 	return mem;
 }
 
-void hcWriteMemU8ToFile(hcMemU8* mem, const char* filepath)
+void ecWriteMemU8ToFile(ecMemU8* mem, const char* filepath)
 {
 	FILE* writeFile = fopen(filepath, "wb");
 	if (writeFile != NULL)
@@ -198,7 +198,7 @@ void hcWriteMemU8ToFile(hcMemU8* mem, const char* filepath)
 	}
 }
 
-void hcWriteMemU16ToFile(hcMemU16* mem, const char* filepath)
+void ecWriteMemU16ToFile(ecMemU16* mem, const char* filepath)
 {
 	FILE* writeFile = fopen(filepath, "wb");
 	if (writeFile != NULL)
@@ -208,7 +208,7 @@ void hcWriteMemU16ToFile(hcMemU16* mem, const char* filepath)
 	}
 }
 
-void hcWriteMemU32ToFile(hcMemU32* mem, const char* filepath)
+void ecWriteMemU32ToFile(ecMemU32* mem, const char* filepath)
 {
 	FILE* writeFile = fopen(filepath, "wb");
 	if (writeFile != NULL)
@@ -218,7 +218,7 @@ void hcWriteMemU32ToFile(hcMemU32* mem, const char* filepath)
 	}
 }
 
-void hcWriteMemU64ToFile(hcMemU64* mem, const char* filepath)
+void ecWriteMemU64ToFile(ecMemU64* mem, const char* filepath)
 {
 	FILE* writeFile = fopen(filepath, "wb");
 	if (writeFile != NULL)
@@ -228,39 +228,39 @@ void hcWriteMemU64ToFile(hcMemU64* mem, const char* filepath)
 	}
 }
 
-void hcWriteMemS8ToFile(hcMemS8* mem, const char* filepath)
+void ecWriteMemS8ToFile(ecMemS8* mem, const char* filepath)
 {
-	hcMemU8 temp;
+	ecMemU8 temp;
 	temp.data = mem->data;
 	temp.size = mem->size;
-	hcWriteMemU8ToFile(&temp, filepath);
+	ecWriteMemU8ToFile(&temp, filepath);
 }
 
-void hcWriteMemS16ToFile(hcMemS16* mem, const char* filepath)
+void ecWriteMemS16ToFile(ecMemS16* mem, const char* filepath)
 {
-	hcMemU16 temp;
+	ecMemU16 temp;
 	temp.data = mem->data;
 	temp.size = mem->size;
-	hcWriteMemU16ToFile(&temp, filepath);
+	ecWriteMemU16ToFile(&temp, filepath);
 }
 
-void hcWriteMemS32ToFile(hcMemS32* mem, const char* filepath)
+void ecWriteMemS32ToFile(ecMemS32* mem, const char* filepath)
 {
-	hcMemU32 temp;
+	ecMemU32 temp;
 	temp.data = mem->data;
 	temp.size = mem->size;
-	hcWriteMemU32ToFile(&temp, filepath);
+	ecWriteMemU32ToFile(&temp, filepath);
 }
 
-void hcWriteMemS64ToFile(hcMemS64* mem, const char* filepath)
+void ecWriteMemS64ToFile(ecMemS64* mem, const char* filepath)
 {
-	hcMemU64 temp;
+	ecMemU64 temp;
 	temp.data = mem->data;
 	temp.size = mem->size;
-	hcWriteMemU64ToFile(&temp, filepath);
+	ecWriteMemU64ToFile(&temp, filepath);
 }
 
-void hcAppendMemU8ToFile(hcMemU8* mem, const char* filepath)
+void ecAppendMemU8ToFile(ecMemU8* mem, const char* filepath)
 {
 	FILE* appendFile = fopen(filepath, "ab");
 	if (appendFile != NULL)
@@ -270,7 +270,7 @@ void hcAppendMemU8ToFile(hcMemU8* mem, const char* filepath)
 	}
 }
 
-void hcAppendMemU16ToFile(hcMemU16* mem, const char* filepath)
+void ecAppendMemU16ToFile(ecMemU16* mem, const char* filepath)
 {
 	FILE* appendFile = fopen(filepath, "ab");
 	if (appendFile != NULL)
@@ -280,7 +280,7 @@ void hcAppendMemU16ToFile(hcMemU16* mem, const char* filepath)
 	}
 }
 
-void hcAppendMemU32ToFile(hcMemU32* mem, const char* filepath)
+void ecAppendMemU32ToFile(ecMemU32* mem, const char* filepath)
 {
 	FILE* appendFile = fopen(filepath, "ab");
 	if (appendFile != NULL)
@@ -290,7 +290,7 @@ void hcAppendMemU32ToFile(hcMemU32* mem, const char* filepath)
 	}
 }
 
-void hcAppendMemU64ToFile(hcMemU64* mem, const char* filepath)
+void ecAppendMemU64ToFile(ecMemU64* mem, const char* filepath)
 {
 	FILE* appendFile = fopen(filepath, "ab");
 	if (appendFile != NULL)
@@ -300,34 +300,34 @@ void hcAppendMemU64ToFile(hcMemU64* mem, const char* filepath)
 	}
 }
 
-void hcAppendMemS8ToFile(hcMemS8* mem, const char* filepath)
+void ecAppendMemS8ToFile(ecMemS8* mem, const char* filepath)
 {
-	hcMemU8 temp;
+	ecMemU8 temp;
 	temp.data = mem->data;
 	temp.size = mem->size;
-	hcAppendMemU8ToFile(&temp, filepath);
+	ecAppendMemU8ToFile(&temp, filepath);
 }
 
-void hcAppendMemS16ToFile(hcMemS16* mem, const char* filepath)
+void ecAppendMemS16ToFile(ecMemS16* mem, const char* filepath)
 {
-	hcMemU16 temp;
+	ecMemU16 temp;
 	temp.data = mem->data;
 	temp.size = mem->size;
-	hcAppendMemU16ToFile(&temp, filepath);
+	ecAppendMemU16ToFile(&temp, filepath);
 }
 
-void hcAppendMemS32ToFile(hcMemS32* mem, const char* filepath)
+void ecAppendMemS32ToFile(ecMemS32* mem, const char* filepath)
 {
-	hcMemU32 temp;
+	ecMemU32 temp;
 	temp.data = mem->data;
 	temp.size = mem->size;
-	hcAppendMemU32ToFile(&temp, filepath);
+	ecAppendMemU32ToFile(&temp, filepath);
 }
 
-void hcAppendMemS64ToFile(hcMemS64* mem, const char* filepath)
+void ecAppendMemS64ToFile(ecMemS64* mem, const char* filepath)
 {
-	hcMemU64 temp;
+	ecMemU64 temp;
 	temp.data = mem->data;
 	temp.size = mem->size;
-	hcAppendMemU64ToFile(&temp, filepath);
+	ecAppendMemU64ToFile(&temp, filepath);
 }

@@ -2,14 +2,14 @@
 #include "../include/File.h"
 #include "../include/DataStructures/Memory.h"
 
-void hcPrintFileToConsole(const char* filename) 
+void ecPrintFileToConsole(const char* filename) 
 {
-	hcString text = hcReadASCIIStringFromFile(filename);
+	ecString text = ecReadASCIIStringFromFile(filename);
 	printf(text.data);
-	hcFreeString(&text);
+	ecFreeString(&text);
 }
 
-void hcConsolePause()
+void ecConsolePause()
 {
 	printf("\n\nPress any key to continue.");
 	getchar();

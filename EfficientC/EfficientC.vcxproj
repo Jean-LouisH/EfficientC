@@ -24,7 +24,7 @@
     <ClInclude Include="include\DataStructures\Memory.h" />
     <ClInclude Include="include\DataStructures\Strings.h" />
     <ClInclude Include="include\File.h" />
-    <ClInclude Include="include\HighC.h" />
+    <ClInclude Include="include\EfficientC.h" />
     <ClInclude Include="include\Types.h" />
   </ItemGroup>
   <ItemGroup>
@@ -93,8 +93,11 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\HighC\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\EfficientC\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Lib>
+      <SubSystem>Console</SubSystem>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

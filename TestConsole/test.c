@@ -6,43 +6,43 @@
 void testPrintMainToConsole()
 {
 	printf("\n\tTesting Printing Main to Console...\n");
-	hcPrintFileToConsole("main.c");
-	hcConsolePause();
+	ecPrintFileToConsole("main.c");
+	ecConsolePause();
 }
 
 void testFileOperations()
 {
-	hcString fileName;
-	hcString fileExtension;
-	hcString ascii;
-	hcMemU8 memU8;
+	ecString fileName;
+	ecString fileExtension;
+	ecString ascii;
+	ecMemU8 memU8;
 
 	const char* fileTest = "FileTest.txt";
 
 	printf("\n\tTesting File Operations...");
 
-	if (hcFileExists(fileTest))
+	if (ecFileExists(fileTest))
 	{
-		fileName = hcExtractFileName(fileTest);
-		fileExtension = hcExtractFileExtension(fileTest);
+		fileName = ecExtractFileName(fileTest);
+		fileExtension = ecExtractFileExtension(fileTest);
 
-		ascii = hcReadASCIIStringFromFile(fileTest);
-		memU8 = hcReadMemU8FromFile(fileTest);
+		ascii = ecReadASCIIStringFromFile(fileTest);
+		memU8 = ecReadMemU8FromFile(fileTest);
 	}
 
-	hcConsolePause();
+	ecConsolePause();
 }
 
 void testStringComparison()
 {
 	printf("\n\tTesting String Comparison...");
-	hcString string = hcNewString("Testing");
-	hcIsStringAndCharArrayTheSame(&string, "Banana");
-	hcIsStringAndCharArrayTheSame(&string, "Test");
-	hcIsStringAndCharArrayTheSame(&string, "Testing");
-	hcFreeString(&string);
+	ecString string = ecNewString("Testing");
+	ecIsStringAndCharArrayTheSame(&string, "Banana");
+	ecIsStringAndCharArrayTheSame(&string, "Test");
+	ecIsStringAndCharArrayTheSame(&string, "Testing");
+	ecFreeString(&string);
 
-	hcConsolePause();
+	ecConsolePause();
 }
 
 #endif

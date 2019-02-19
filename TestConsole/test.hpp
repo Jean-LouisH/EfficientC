@@ -1,7 +1,7 @@
 #include "CompilerSwitch.h"
 
 #if (COMPILER_SWITCH == Cpp)
-#include <HighC.h>
+#include <EfficientC.h>
 
 class Test
 {

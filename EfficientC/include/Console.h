@@ -9,8 +9,8 @@ extern "C"
 #include <stdio.h>
 #include <stdlib.h>
 
-void hcPrintFileToConsole(const char* filename);
-void hcConsolePause();
+void ecPrintFileToConsole(const char* filename);
+void ecConsolePause();
 
 #ifdef __cplusplus
 }

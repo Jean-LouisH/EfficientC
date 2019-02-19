@@ -1,5 +1,5 @@
-#ifndef HighC_h
-#define HighC_h
+#ifndef EfficientC_h
+#define EfficientC_h
 
 #ifdef __cplusplus
 extern "C"
@@ -16,4 +16,4 @@ extern "C"
 }
 #endif
 
-#endif /*HighC_h*/
+#endif /*EfficientC_h*/
