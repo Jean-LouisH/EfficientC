@@ -11,7 +11,6 @@ extern "C"
 #include "DataStructures/Strings.h"
 
 ecString ecConvertMemU8ToString(ecMemU8 mem);
-ecString ecConvertMemS8ToString(ecMemS8 mem);
 
 #ifdef __cplusplus
 }

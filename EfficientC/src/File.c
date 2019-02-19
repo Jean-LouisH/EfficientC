@@ -152,42 +152,6 @@ ecMemU64 ecReadMemU64FromFile(const char* filepath)
 	return mem;
 }
 
-ecMemS8 ecReadMemS8FromFile(const char* filepath)
-{
-	ecMemS8 mem;
-	ecMemU8 temp = ecReadMemU8FromFile(filepath);
-	mem.data = temp.data;
-	mem.size = temp.size;
-	return mem;
-}
-
-ecMemS16 ecReadMemS16FromFile(const char* filepath)
-{
-	ecMemS16 mem;
-	ecMemU16 temp = ecReadMemU16FromFile(filepath);
-	mem.data = temp.data;
-	mem.size = temp.size;
-	return mem;
-}
-
-ecMemS32 ecReadMemS32FromFile(const char* filepath)
-{
-	ecMemS32 mem;
-	ecMemU32 temp = ecReadMemU32FromFile(filepath);
-	mem.data = temp.data;
-	mem.size = temp.size;
-	return mem;
-}
-
-ecMemS64 ecReadMemS64FromFile(const char* filepath)
-{
-	ecMemS64 mem;
-	ecMemU64 temp = ecReadMemU64FromFile(filepath);
-	mem.data = temp.data;
-	mem.size = temp.size;
-	return mem;
-}
-
 void ecWriteMemU8ToFile(ecMemU8* mem, const char* filepath)
 {
 	FILE* writeFile = fopen(filepath, "wb");
@@ -228,38 +192,6 @@ void ecWriteMemU64ToFile(ecMemU64* mem, const char* filepath)
 	}
 }
 
-void ecWriteMemS8ToFile(ecMemS8* mem, const char* filepath)
-{
-	ecMemU8 temp;
-	temp.data = mem->data;
-	temp.size = mem->size;
-	ecWriteMemU8ToFile(&temp, filepath);
-}
-
-void ecWriteMemS16ToFile(ecMemS16* mem, const char* filepath)
-{
-	ecMemU16 temp;
-	temp.data = mem->data;
-	temp.size = mem->size;
-	ecWriteMemU16ToFile(&temp, filepath);
-}
-
-void ecWriteMemS32ToFile(ecMemS32* mem, const char* filepath)
-{
-	ecMemU32 temp;
-	temp.data = mem->data;
-	temp.size = mem->size;
-	ecWriteMemU32ToFile(&temp, filepath);
-}
-
-void ecWriteMemS64ToFile(ecMemS64* mem, const char* filepath)
-{
-	ecMemU64 temp;
-	temp.data = mem->data;
-	temp.size = mem->size;
-	ecWriteMemU64ToFile(&temp, filepath);
-}
-
 void ecAppendMemU8ToFile(ecMemU8* mem, const char* filepath)
 {
 	FILE* appendFile = fopen(filepath, "ab");
@@ -298,36 +230,4 @@ void ecAppendMemU64ToFile(ecMemU64* mem, const char* filepath)
 		fwrite(mem->data, sizeof(uint64_t), mem->size, appendFile);
 		fclose(appendFile);
 	}
-}
-
-void ecAppendMemS8ToFile(ecMemS8* mem, const char* filepath)
-{
-	ecMemU8 temp;
-	temp.data = mem->data;
-	temp.size = mem->size;
-	ecAppendMemU8ToFile(&temp, filepath);
-}
-
-void ecAppendMemS16ToFile(ecMemS16* mem, const char* filepath)
-{
-	ecMemU16 temp;
-	temp.data = mem->data;
-	temp.size = mem->size;
-	ecAppendMemU16ToFile(&temp, filepath);
-}
-
-void ecAppendMemS32ToFile(ecMemS32* mem, const char* filepath)
-{
-	ecMemU32 temp;
-	temp.data = mem->data;
-	temp.size = mem->size;
-	ecAppendMemU32ToFile(&temp, filepath);
-}
-
-void ecAppendMemS64ToFile(ecMemS64* mem, const char* filepath)
-{
-	ecMemU64 temp;
-	temp.data = mem->data;
-	temp.size = mem->size;
-	ecAppendMemU64ToFile(&temp, filepath);
 }
