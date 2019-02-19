@@ -23,6 +23,7 @@
     <ClInclude Include="include\Converters.h" />
     <ClInclude Include="include\DataStructures\Memory.h" />
     <ClInclude Include="include\DataStructures\Strings.h" />
+    <ClInclude Include="include\Endianess.h" />
     <ClInclude Include="include\File.h" />
     <ClInclude Include="include\EfficientC.h" />
   </ItemGroup>
@@ -31,6 +32,7 @@
     <ClCompile Include="src\Converters.c" />
     <ClCompile Include="src\DataStructures\Memory.c" />
     <ClCompile Include="src\DataStructures\Strings.c" />
+    <ClCompile Include="src\Endianess.c" />
     <ClCompile Include="src\File.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
