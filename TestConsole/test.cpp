@@ -1,6 +1,3 @@
-#include "CompilerSwitch.h"
-
-#if (COMPILER_SWITCH == Cpp)
 #include "test.hpp"
 
 void Test::PrintMainToConsole()
@@ -44,5 +41,3 @@ void Test::StringComparison()
 
 	ecConsolePause();
 }
-
-#endif
