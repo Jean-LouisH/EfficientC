@@ -30,9 +30,6 @@
     <ClInclude Include="include\DataStructures\Strings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Types.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\EfficientC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
