@@ -1,13 +1,13 @@
 #include "test.hpp"
 
-void Test::PrintMainToConsole()
+void Test::printMainToConsole()
 {
 	printf("\n\tTesting Printing Main to Console...\n");
 	ecPrintFileToConsole("main.cpp");
 	ecConsolePause();
 }
 
-void Test::FileOperations()
+void Test::fileOperations()
 {
 	ecString fileName;
 	ecString fileExtension;
@@ -30,7 +30,7 @@ void Test::FileOperations()
 	ecConsolePause();
 }
 
-void Test::StringComparison()
+void Test::stringComparison()
 {
 	printf("\n\tTesting String Comparison...");
 	ecString string = ecNewString("Testing");

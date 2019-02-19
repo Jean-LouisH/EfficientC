@@ -3,8 +3,8 @@
 int main(int argc, char* argv[])
 {
 	Test test;
-	test.PrintMainToConsole();
-	test.FileOperations();
-	test.StringComparison();
+	test.printMainToConsole();
+	test.fileOperations();
+	test.stringComparison();
 	return 0;
 }

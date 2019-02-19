@@ -3,7 +3,7 @@
 class Test
 {
 public:
-	void PrintMainToConsole();
-	void FileOperations();
-	void StringComparison();
+	void printMainToConsole();
+	void fileOperations();
+	void stringComparison();
 };
