@@ -56,7 +56,7 @@ void ecAssignStringToString(ecString* stringCopy, ecString stringOriginal)
 		strcpy(stringCopy->data, stringOriginal.data);
 }
 
-void ecInsertCharIntoString(ecString* string, char character, uint32_t startIndex)
+void ecInsertCharIntoString(ecString* string, char character, uint64_t startIndex)
 {
 	if (string->data != NULL && startIndex <= string->length)
 	{
@@ -80,7 +80,7 @@ void ecInsertCharIntoString(ecString* string, char character, uint32_t startInde
 	}
 }
 
-void ecInsertStringIntoString(ecString* string, ecString subString, uint32_t startIndex)
+void ecInsertStringIntoString(ecString* string, ecString subString, uint64_t startIndex)
 {
 	if (string->data != NULL && startIndex <= string->length)
 	{
@@ -105,12 +105,12 @@ void ecInsertStringIntoString(ecString* string, ecString subString, uint32_t sta
 	}
 }
 
-void ecEraseIndicesFromString(ecString* string, uint32_t startIndex, uint32_t finishIndex)
+void ecEraseIndicesFromString(ecString* string, uint64_t startIndex, uint64_t finishIndex)
 {
 
 }
 
-void ecReplaceStringToString(ecString* string, ecString* subString, uint32_t startIndex)
+void ecReplaceStringToString(ecString* string, ecString* subString, uint64_t startIndex)
 {
 
 }
@@ -141,19 +141,19 @@ char ecPopBackString(ecString* string)
 	return character;
 }
 
-uint32_t ecGetIndexBeforeString(ecString* string, const char* text)
+uint64_t ecGetIndexBeforeString(ecString* string, const char* text)
 {
-	uint32_t startIndex = 0;
+	uint64_t startIndex = 0;
 	return startIndex;
 }
 
-uint32_t ecGetIndexAfterString(ecString* string, const char* text)
+uint64_t ecGetIndexAfterString(ecString* string, const char* text)
 {
-	uint32_t finishIndex = 0;
+	uint64_t finishIndex = 0;
 	return finishIndex;
 }
 
-ecString ecGetSubstring(ecString* string, uint32_t startIndex)
+ecString ecGetSubstring(ecString* string, uint64_t startIndex)
 {
 	ecString subString = ecNewString("");
 	return subString;
@@ -169,9 +169,9 @@ void ecCasefoldString(ecString* string)
 
 }
 
-uint32_t ecCountSubstrings(ecString* string, const char* text)
+uint64_t ecCountSubstrings(ecString* string, const char* text)
 {
-	uint32_t subStringCount = 0;
+	uint64_t subStringCount = 0;
 	return subStringCount;
 }
 
@@ -269,7 +269,7 @@ bool ecisStringEmpty(ecString* string)
 	return isEmpty;
 }
 
-void ecReserveString(ecString* string, uint32_t newCapacity)
+void ecReserveString(ecString* string, uint64_t newCapacity)
 {
 	if (string->data != NULL)
 	{
