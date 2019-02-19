@@ -12,8 +12,8 @@ extern "C"
 typedef struct
 {
 	char* data;
-	uint32_t length;
-	uint32_t capacity;
+	uint64_t length;
+	uint64_t capacity;
 }ecString;
 
 ecString ecNewString(const char* initialString);
