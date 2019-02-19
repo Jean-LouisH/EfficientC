@@ -11,7 +11,6 @@ extern "C"
 #include "DataStructures/Memory.h"
 #include "DataStructures/Strings.h"
 
-
 #ifdef __cplusplus
 }
 #endif
