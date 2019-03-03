@@ -11,6 +11,7 @@ extern "C"
 
 void ecPrintFileToConsole(const char* filename);
 void ecConsolePause();
+void ecPrintCharArrayToConsole(const char* text);
 
 #ifdef __cplusplus
 }
