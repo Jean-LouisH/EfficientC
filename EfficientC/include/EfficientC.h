@@ -6,8 +6,10 @@ extern "C"
 {
 #endif
 
-#include "Console.h"
+#include "Converters.h"
+#include "Endianess.h"
 #include "File.h"
+#include "Logging.h"
 #include "DataStructures/Memory.h"
 #include "DataStructures/Strings.h"
 
