@@ -1,4 +1,4 @@
-#include "../include/Console.h"
+#include "../include/Logging.h"
 #include "../include/File.h"
 #include "../include/DataStructures/Memory.h"
 

@@ -1,5 +1,5 @@
-#ifndef Console_h
-#define Console_h
+#ifndef Logging_h
+#define Logging_h
 
 #ifdef __cplusplus
 extern "C"
@@ -14,6 +14,7 @@ void ecConsolePause();
 
 #ifdef __cplusplus
 }
+
 #endif
 
-#endif /*Console_h*/
+#endif /*Logging_h*/

@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Console.h" />
+    <ClInclude Include="include\Logging.h" />
     <ClInclude Include="include\Converters.h" />
     <ClInclude Include="include\DataStructures\Memory.h" />
     <ClInclude Include="include\DataStructures\Strings.h" />
@@ -28,7 +28,7 @@
     <ClInclude Include="include\EfficientC.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Console.c" />
+    <ClCompile Include="src\Logging.c" />
     <ClCompile Include="src\Converters.c" />
     <ClCompile Include="src\DataStructures\Memory.c" />
     <ClCompile Include="src\DataStructures\Strings.c" />
