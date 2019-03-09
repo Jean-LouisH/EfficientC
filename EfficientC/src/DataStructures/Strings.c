@@ -156,6 +156,10 @@ uint64_t ecGetIndexAfterString(ecString* string, const char* text)
 ecString ecGetSubstring(ecString* string, uint64_t startIndex)
 {
 	ecString subString = ecNewString("");
+	
+	for (int i = startIndex; i < string->length; i++)
+		ecAppendCharToString(&subString, string->data[i]);
+
 	return subString;
 }
 
