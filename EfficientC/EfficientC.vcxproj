@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\DataStructures\Streams.h" />
     <ClInclude Include="include\Logging.h" />
     <ClInclude Include="include\Converters.h" />
     <ClInclude Include="include\DataStructures\Memory.h" />

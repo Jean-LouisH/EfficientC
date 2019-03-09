@@ -11,6 +11,7 @@ extern "C"
 #include "File.h"
 #include "Logging.h"
 #include "DataStructures/Memory.h"
+#include "DataStructures/Streams.h"
 #include "DataStructures/Strings.h"
 
 #ifdef __cplusplus
