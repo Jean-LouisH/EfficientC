@@ -8,6 +8,7 @@ extern "C"
 
 #include <stdbool.h>
 #include "DataStructures/Memory.h"
+#include "DataStructures/Streams.h"
 #include "DataStructures/Strings.h"
 
 bool ecFileExists(const char* filepath);
@@ -19,6 +20,11 @@ ecMemU8 ecReadMemU8FromFile(const char* filepath);
 ecMemU16 ecReadMemU16FromFile(const char* filepath);
 ecMemU32 ecReadMemU32FromFile(const char* filepath);
 ecMemU64 ecReadMemU64FromFile(const char* filepath);
+
+ecStreamU8 ecNewStreamU8FromFile(const char* filepath);
+ecStreamU16 ecNewStreamU16FromFile(const char* filepath);
+ecStreamU32 ecNewStreamU32FromFile(const char* filepath);
+ecStreamU64 ecNewStreamU64FromFile(const char* filepath);
 
 void ecWriteMemU8ToFile(ecMemU8* mem, const char* filepath);
 void ecWriteMemU16ToFile(ecMemU16* mem, const char* filepath);

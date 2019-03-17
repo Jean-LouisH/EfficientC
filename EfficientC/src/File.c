@@ -152,6 +152,86 @@ ecMemU64 ecReadMemU64FromFile(const char* filepath)
 	return mem;
 }
 
+ecStreamU8 ecNewStreamU8FromFile(const char* filepath)
+{
+	FILE* readFile = fopen(filepath, "rb");
+	ecStreamU8 stream;
+	stream.base = NULL;
+	stream.buffer = NULL;
+	stream.end = 0;
+	stream.progress = 0;
+	stream.size = 0;
+	stream.file = NULL;
+	if (readFile != NULL)
+	{
+		stream.file = readFile;
+		fseek(stream.file, 0, SEEK_END);
+		stream.end = ftell(stream.file);
+		rewind(stream.file);
+	}
+	return stream;
+}
+
+ecStreamU16 ecNewStreamU16FromFile(const char* filepath)
+{
+	FILE* readFile = fopen(filepath, "rb");
+	ecStreamU16 stream;
+	stream.base = NULL;
+	stream.buffer = NULL;
+	stream.end = 0;
+	stream.progress = 0;
+	stream.size = 0;
+	stream.file = NULL;
+	if (readFile != NULL)
+	{
+		stream.file = readFile;
+		fseek(stream.file, 0, SEEK_END);
+		stream.end = ftell(stream.file);
+		rewind(stream.file);
+	}
+	return stream;
+}
+
+ecStreamU32 ecNewStreamU32FromFile(const char* filepath)
+{
+	FILE* readFile = fopen(filepath, "rb");
+	ecStreamU32 stream;
+	stream.base = NULL;
+	stream.buffer = NULL;
+	stream.end = 0;
+	stream.progress = 0;
+	stream.size = 0;
+	stream.file = NULL;
+	if (readFile != NULL)
+	{
+		stream.file = readFile;
+		fseek(stream.file, 0, SEEK_END);
+		stream.end = ftell(stream.file);
+		rewind(stream.file);
+	}
+	return stream;
+}
+
+ecStreamU64 ecNewStreamU64FromFile(const char* filepath)
+{
+	FILE* readFile = fopen(filepath, "rb");
+	ecStreamU64 stream;
+	stream.base = NULL;
+	stream.buffer = NULL;
+	stream.end = 0;
+	stream.progress = 0;
+	stream.size = 0;
+	stream.file = NULL;
+	if (readFile != NULL)
+	{
+		stream.file = readFile;
+		fseek(stream.file, 0, SEEK_END);
+		stream.end = ftell(stream.file);
+		rewind(stream.file);
+	}
+	return stream;
+}
+
 void ecWriteMemU8ToFile(ecMemU8* mem, const char* filepath)
 {
 	FILE* writeFile = fopen(filepath, "wb");
