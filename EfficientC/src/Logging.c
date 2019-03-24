@@ -22,6 +22,7 @@ void ecPrintCharArrayToConsole(const char* text)
 	const int tabWidth = 30;
 	ecString message = ecNewString(text);
 
+	/*Inserts tabs between colon and latter text.*/
 	for (int i = 0; i < message.length; i++)
 		if (message.data[i] == ':')
 			for (int j = 0; (j < (tabWidth - i)) && (i < tabWidth); j++)
