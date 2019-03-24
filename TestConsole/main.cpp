@@ -3,8 +3,8 @@
 int main(int argc, char* argv[])
 {
 	Test test;
-	test.printMainToConsole();
+	test.logging();
 	test.fileOperations();
-	test.stringComparison();
+	test.stringOperations();
 	return 0;
 }

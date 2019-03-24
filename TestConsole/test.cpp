@@ -1,10 +1,23 @@
 #include "test.hpp"
 
-void Test::printMainToConsole()
+void Test::memToStringConversions()
 {
-	printf("\n\tTesting Printing Main to Console...\n");
-	ecPrintFileToConsole("main.cpp");
-	ecConsolePause();
+
+}
+
+void Test::endianessConversions()
+{
+
+}
+
+void Test::memoryAllocations()
+{
+
+}
+
+void Test::streaming()
+{
+
 }
 
 void Test::fileOperations()
@@ -30,7 +43,7 @@ void Test::fileOperations()
 	ecConsolePause();
 }
 
-void Test::stringComparison()
+void Test::stringOperations()
 {
 	printf("\n\tTesting String Comparison...");
 	ecString string = ecNewString("Testing");
@@ -39,5 +52,13 @@ void Test::stringComparison()
 	ecIsStringAndCharArrayTheSame(&string, "Testing");
 	ecFreeString(&string);
 
+	ecConsolePause();
+}
+
+void Test::logging()
+{
+	ecPrintCharArrayToConsole("\n\tTesting Printing Main to Console...\n");
+	ecPrintFileToConsole("main.cpp");
+	ecPrintCharArrayToConsole("\nTesting tab spacing once: with this");
 	ecConsolePause();
 }

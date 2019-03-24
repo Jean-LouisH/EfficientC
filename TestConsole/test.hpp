@@ -3,7 +3,11 @@
 class Test
 {
 public:
-	void printMainToConsole();
+	void memToStringConversions();
+	void endianessConversions();
+	void memoryAllocations();
+	void streaming();
 	void fileOperations();
-	void stringComparison();
+	void stringOperations();
+	void logging();
 };

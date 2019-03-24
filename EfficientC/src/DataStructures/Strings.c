@@ -87,7 +87,7 @@ void ecInsertStringIntoString(ecString* string, ecString subString, uint64_t sta
 		if (string->length + subString.length >= string->capacity)
 		{
 			int newCapacity = string->capacity + subString.length + 1;
-			string->data = realloc(string->data, newCapacity * sizeof(char));
+			string->data = realloc(string->data, newCapacity * sizeof *string->data);
 			if (string->data != NULL)
 				string->capacity = newCapacity;
 		}
