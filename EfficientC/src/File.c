@@ -21,7 +21,7 @@ ecString ecExtractFileName(const char* filepath)
 		filepathLength++;
 
 	nameIndexStart = filepathLength - 1;
-	while (filepath[nameIndexStart] != '/' && filepath[nameIndexStart] != '\\')
+	while (filepath[nameIndexStart] != '/' && filepath[nameIndexStart] != '\\' && nameIndexStart >= 0)
 		nameIndexStart--;
 
 	for (int i = nameIndexStart + 1; filepath[i] != '.'; i++)
