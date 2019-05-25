@@ -176,6 +176,27 @@ void ecCasefoldString(ecString* string)
 uint64_t ecCountSubstrings(ecString* string, const char* text)
 {
 	uint64_t subStringCount = 0;
+	uint64_t subStringLength = strlen(text);
+
+	for (int i = 0; i < (string->length - subStringLength + 1); i++)
+	{
+		bool match = true;
+		for (int j = i; j < i + subStringLength; j++)
+		{
+			if (string->data[j] != text[j - i])
+			{
+				match = false;
+				break;
+			}
+		}
+
+		if (match)
+		{
+			subStringCount++;
+			i += subStringLength - 1;
+		}
+	}
+
 	return subStringCount;
 }
 
