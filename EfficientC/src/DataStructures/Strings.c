@@ -19,7 +19,7 @@ void ecAppendCharToString(ecString* string, char character)
 	{
 		if (string->length >= string->capacity)
 		{
-			int newCapacity = string->capacity + 10;
+			int newCapacity = string->capacity * 2;
 			string->data = realloc(string->data, newCapacity * sizeof(char));
 			if (string->data != NULL)
 				string->capacity = newCapacity;
@@ -62,7 +62,7 @@ void ecInsertCharIntoString(ecString* string, char character, uint64_t startInde
 	{
 		if (string->length + 1 >= string->capacity)
 		{
-			int newCapacity = string->capacity + 1;
+			int newCapacity = string->capacity * 2;
 			string->data = realloc(string->data, newCapacity * sizeof(char));
 			if (string->data != NULL)
 				string->capacity = newCapacity;
@@ -86,7 +86,7 @@ void ecInsertStringIntoString(ecString* string, ecString subString, uint64_t sta
 	{
 		if (string->length + subString.length >= string->capacity)
 		{
-			int newCapacity = string->capacity + subString.length + 1;
+			int newCapacity = (string->capacity + subString.length) * 2;
 			string->data = realloc(string->data, newCapacity * sizeof *string->data);
 			if (string->data != NULL)
 				string->capacity = newCapacity;
