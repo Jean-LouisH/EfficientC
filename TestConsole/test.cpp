@@ -40,6 +40,10 @@ void Test::fileOperations()
 		memU8 = ecReadMemU8FromFile(fileTest);
 	}
 
+	ecFreeString(&fileName);
+	ecFreeString(&fileExtension);
+	ecFreeString(&ascii);
+
 	ecConsolePause();
 }
 

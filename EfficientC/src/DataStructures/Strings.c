@@ -6,7 +6,10 @@ ecString ecNewString(const char* initialString)
 {
 	ecString string;
 	string.length = strlen(initialString);
-	string.capacity = string.length + 1;
+	if (string.length == 0)
+		string.capacity = 2;
+	else
+		string.capacity = string.length + 1;
 	string.data = calloc(string.capacity, sizeof(char));
 	if (string.data != NULL)
 		strcpy(string.data, initialString);
@@ -17,7 +20,7 @@ void ecAppendCharToString(ecString* string, char character)
 {
 	if (string->data != NULL)
 	{
-		if (string->length >= string->capacity)
+		if (string->length == string->capacity - 1)
 		{
 			int newCapacity = string->capacity * 2;
 			string->data = realloc(string->data, newCapacity * sizeof(char));
@@ -26,11 +29,11 @@ void ecAppendCharToString(ecString* string, char character)
 		}
 
 		/*in case allocation fails, check again.*/
-		if (string->length < string->capacity)
+		if (string->length < string->capacity - 1)
 		{
-			string->data[string->length] = character;
-			string->data[string->length + 1] = 0;
 			string->length++;
+			string->data[string->length - 1] = character;
+			string->data[string->length] = 0;
 		}
 	}
 }
@@ -38,7 +41,11 @@ void ecAppendCharToString(ecString* string, char character)
 void ecAppendStringToString(ecString* firstString, ecString secondString)
 {
 	if (firstString->data != NULL && secondString.data != NULL)
+	{
 		strcat(firstString->data, secondString.data);
+		firstString->length = strlen(firstString->data);
+		firstString->capacity = firstString->length + 1;
+	}
 }
 
 void ecAssignCharToString(ecString* string, char character)
@@ -53,14 +60,18 @@ void ecAssignCharToString(ecString* string, char character)
 void ecAssignStringToString(ecString* stringCopy, ecString stringOriginal)
 {
 	if (stringCopy->data != NULL && stringOriginal.data != NULL)
+	{
 		strcpy(stringCopy->data, stringOriginal.data);
+		stringCopy->length = stringOriginal.length;
+		stringCopy->capacity = stringOriginal.capacity;
+	}
 }
 
 void ecInsertCharIntoString(ecString* string, char character, uint64_t startIndex)
 {
 	if (string->data != NULL && startIndex <= string->length)
 	{
-		if (string->length + 1 >= string->capacity)
+		if (string->length == string->capacity - 1)
 		{
 			int newCapacity = string->capacity * 2;
 			string->data = realloc(string->data, newCapacity * sizeof(char));
@@ -69,13 +80,15 @@ void ecInsertCharIntoString(ecString* string, char character, uint64_t startInde
 		}
 
 		/*in case allocation fails, check again.*/
-		if (string->length < string->capacity + 1)
+		if (string->length < string->capacity - 1)
 		{
-			for (int i = string->length; i >= startIndex; i--)
-				string->data[i + 1] = string->data[i];
 			string->length++;
+
+			for (int i = string->length - 1; i >= startIndex; i--)
+				string->data[i + 1] = string->data[i];
+
 			string->data[startIndex] = character;
-			string->data[string->length + 1] = 0;
+			string->data[string->length] = 0;
 		}
 	}
 }
@@ -84,7 +97,7 @@ void ecInsertStringIntoString(ecString* string, ecString subString, uint64_t sta
 {
 	if (string->data != NULL && startIndex <= string->length)
 	{
-		if (string->length + subString.length >= string->capacity)
+		if (string->length + subString.length >= string->capacity - 1)
 		{
 			int newCapacity = (string->capacity + subString.length) * 2;
 			string->data = realloc(string->data, newCapacity * sizeof *string->data);
@@ -93,7 +106,7 @@ void ecInsertStringIntoString(ecString* string, ecString subString, uint64_t sta
 		}
 
 		/*in case allocation fails, check again.*/
-		if (string->length < string->capacity + subString.length)
+		if (string->length < string->capacity + subString.length - 1)
 		{
 			for (int i = string->length; i >= startIndex; i--)
 				string->data[i + subString.length] = string->data[i];
