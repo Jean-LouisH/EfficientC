@@ -13,10 +13,10 @@ extern "C"
 		clock_t start;
 		clock_t end;
 		double deltaTime_s;
-	}ExecutionTimer;
+	}ecExecutionTimer;
 
-	void ecStartExecutionTimer(ExecutionTimer* executionTimer);
-	void ecStopExecutionTimer(ExecutionTimer* executionTimer);
+	void ecStartExecutionTimer(ecExecutionTimer* executionTimer);
+	void ecStopExecutionTimer(ecExecutionTimer* executionTimer);
 
 #ifdef __cplusplus
 }
