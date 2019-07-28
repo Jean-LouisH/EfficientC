@@ -13,6 +13,7 @@ extern "C"
 #include "DataStructures/Memory.h"
 #include "DataStructures/Streams.h"
 #include "DataStructures/Strings.h"
+#include "Timers/ExecutionTimer.h"
 
 #ifdef __cplusplus
 }

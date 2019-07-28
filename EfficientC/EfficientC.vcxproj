@@ -27,6 +27,7 @@
     <ClInclude Include="include\Endianess.h" />
     <ClInclude Include="include\File.h" />
     <ClInclude Include="include\EfficientC.h" />
+    <ClInclude Include="include\Timers\ExecutionTimer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Logging.c" />
@@ -35,6 +36,7 @@
     <ClCompile Include="src\DataStructures\Strings.c" />
     <ClCompile Include="src\Endianess.c" />
     <ClCompile Include="src\File.c" />
+    <ClCompile Include="src\Timers\ExecutionTimer.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
