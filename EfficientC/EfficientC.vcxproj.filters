@@ -42,6 +42,15 @@
     <ClInclude Include="include\Timers\ExecutionTimer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\DataStructures\DoublyLinkedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DataStructures\Node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DataStructures\SinglyLinkedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\File.c">
@@ -63,6 +72,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Timers\ExecutionTimer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DataStructures\SinglyLinkedList.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

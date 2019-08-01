@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\DataStructures\DoublyLinkedList.h" />
+    <ClInclude Include="include\DataStructures\Node.h" />
+    <ClInclude Include="include\DataStructures\SinglyLinkedList.h" />
     <ClInclude Include="include\DataStructures\Streams.h" />
     <ClInclude Include="include\Logging.h" />
     <ClInclude Include="include\Converters.h" />
@@ -30,6 +33,7 @@
     <ClInclude Include="include\Timers\ExecutionTimer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\DataStructures\SinglyLinkedList.c" />
     <ClCompile Include="src\Logging.c" />
     <ClCompile Include="src\Converters.c" />
     <ClCompile Include="src\DataStructures\Memory.c" />
