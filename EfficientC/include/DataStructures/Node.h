@@ -8,9 +8,9 @@ extern "C"
 	typedef struct
 	{
 		void* element;
-		Node* previous;
-		Node* next;
-	}Node;
+		ecNode* previous;
+		ecNode* next;
+	}ecNode;
 
 #ifdef __cplusplus
 }

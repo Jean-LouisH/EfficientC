@@ -12,8 +12,8 @@ extern "C"
 
 	typedef struct
 	{
-		Node head;
-		Node tail;
+		ecNode* head;
+		ecNode* tail;
 		size_t elementSize;
 		uint32_t size;
 	}ecSinglyLinkedList;
