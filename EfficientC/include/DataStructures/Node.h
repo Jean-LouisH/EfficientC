@@ -5,11 +5,11 @@
 extern "C"
 {
 #endif
-	typedef struct
+	typedef struct Node
 	{
 		void* element;
-		ecNode* previous;
-		ecNode* next;
+		struct Node* previous;
+		struct Node* next;
 	}ecNode;
 
 #ifdef __cplusplus
