@@ -76,6 +76,28 @@ ecString ecReadASCIIStringFromFile(const char* filepath)
 	return string;
 }
 
+char* ecReadASCIICharArrayFromFile(const char* filepath)
+{
+	FILE* readFile = fopen(filepath, "rb");
+	char* text = NULL;
+	int fileSize = 0;
+
+	if (readFile != NULL)
+	{
+		fseek(readFile, 0, SEEK_END);
+		fileSize = ftell(readFile);
+		rewind(readFile);
+		text = (char*)malloc(sizeof(char) * (fileSize + 1));
+		if (text != NULL)
+		{
+			fread(text, sizeof(char), fileSize, readFile);
+			text[fileSize] = NULL;
+		}
+		fclose(readFile);
+	}
+	return text;
+}
+
 ecMemU8 ecReadMemU8FromFile(const char* filepath)
 {
 	FILE* readFile = fopen(filepath, "rb");

@@ -15,6 +15,7 @@ bool ecFileExists(const char* filepath);
 ecString ecExtractFileName(const char* filepath);
 ecString ecExtractFileExtension(const char* filepath);
 ecString ecReadASCIIStringFromFile(const char* filepath);
+char* ecReadASCIICharArrayFromFile(const char* filepath);
 
 ecMemU8 ecReadMemU8FromFile(const char* filepath);
 ecMemU16 ecReadMemU16FromFile(const char* filepath);
